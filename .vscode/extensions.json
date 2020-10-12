@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "ms-ceintl.vscode-language-pack-ko",
+        "mikestead.dotenv",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "pkief.material-icon-theme",
+        "mikaelkristiansson87.react-theme-vscode",
+        "mrmlnc.vscode-scss"
+    ]
+}
