@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "containers/*": [
+        "containers"
+      ]
+    },
     "target": "es5",
     "outDir": "dist/",
     "lib": [
