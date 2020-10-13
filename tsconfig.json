@@ -7,6 +7,7 @@
         "containers"
       ]
     },
+    "allowUmdGlobalAccess": true,
     "target": "es5",
     "outDir": "dist/",
     "lib": [

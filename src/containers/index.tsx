@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react';
 
 // const Index: FunctionComponent = () => {
 //     return <Fragment>메인페이지</Fragment>;
@@ -7,31 +7,31 @@ import React, { Component, Fragment } from 'react'
 interface Props {}
 
 interface State {
-    loaded: boolean
+    loaded: boolean;
 }
 
 class Index extends Component<Props, State> {
     constructor(props: Props) {
-        super(props)
+        super(props);
         this.state = {
             loaded: false,
-        }
+        };
     }
 
     static getDerivedStateFromProps() {
-        console.log('zz')
-        return null
+        console.log('zz');
+        return null;
     }
 
-    handleClick = () => {
-        this.setState({
-            loaded: true,
-        })
-    }
+    // handleClick = () => {
+    //     this.setState({
+    //         loaded: true,
+    //     });
+    // };
 
     render() {
-        return <div onClick={this.handleClick}>azz</div>
+        return <div>azz</div>;
     }
 }
 
-export default Index
+export default Index;
