@@ -1,13 +1,13 @@
 {
     "editor.tabSize": 4,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": false,
+        "source.fixAll.eslint": true,
     },
     "editor.formatOnSave": false,
     "eslint.alwaysShowStatus": true,
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "workbench.colorCustomizations": {
-        "activityBar.foreground": "#00FFFF",
+        "activityBar.foreground": "#7A9EFF",
         "badge.background": "#0088AA",
     },
     "editor.tokenColorCustomizations": {
@@ -15,7 +15,7 @@
             {
                 "scope": "support.constant",
                 "settings": {
-                    "foreground": "#14CF94",
+                    "foreground": "#7A9EFF",
                     "fontStyle": "italic"
                 }
             },
