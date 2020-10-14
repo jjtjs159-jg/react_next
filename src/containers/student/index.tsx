@@ -9,11 +9,13 @@ interface Props {
 }
 
 const Index: NextPage<Props> = ({ data }) => {
-    console.log('about==');
+    console.log('student==');
     console.log(data);
     return (
         <Fragment>
             <Header />
+            Student
+            <br />
             {data.name}
         </Fragment>
     );

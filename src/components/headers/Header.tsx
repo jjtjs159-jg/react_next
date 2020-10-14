@@ -1,9 +1,7 @@
-import React, { FunctionComponent, Fragment } from 'react';
+import { FunctionComponent, Fragment } from 'react';
 import Link from 'next/link';
 
-interface Props {}
-
-const Header: FunctionComponent<Props> = ({}) => {
+const Header: FunctionComponent = () => {
     return (
         <Fragment>
             <div>
@@ -11,6 +9,12 @@ const Header: FunctionComponent<Props> = ({}) => {
             </div>
             <div>
                 <Link href="/about">abount</Link>
+            </div>
+            <div>
+                <Link href={`/student/2`}>student 404</Link>
+            </div>
+            <div>
+                <Link href={`/student/22`}>student OK</Link>
             </div>
         </Fragment>
     );

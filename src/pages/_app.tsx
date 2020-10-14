@@ -1,6 +1,4 @@
-import App, { AppProps, AppContext } from 'next/app';
-// import '@babel/polyfill';
-import React from 'react';
+import App, { AppProps } from 'next/app';
 
 /**
  * App 이용 시
