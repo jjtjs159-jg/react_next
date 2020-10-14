@@ -1,4 +1,5 @@
 import Page from 'containers/about/index';
+import axios from 'axios';
 import { GetStaticProps } from 'next';
 
 interface Props {
@@ -20,21 +21,40 @@ interface Props {
  */
 export const getStaticProps: GetStaticProps<Props> = async () => {
     console.log('getStaticProps');
-    const res = await fetch('http://localhost:8080' + '/')
+    const res = await axios({
+        method: 'GET',
+        url: 'http://localhost:8080' + '/',
+    })
         .then((response) => {
             return response;
         })
-        .catch((error: Error) => {
-            throw error;
-        });
+        .catch((error) => {
+            console.log(error);
+            const errorResponse = error.response || {
+                success: false,
+                status: error.response || 500,
+                message: '실패',
+            };
 
-    const result = await res.json();
+            return errorResponse;
+            // throw error;
+        });
+    // const res = await fetch('http://localhost:8080' + '/')
+    //     .then((response) => {
+    //         return response;
+    //     })
+    //     .catch((error: Error) => {
+    //         return null;
+    //         // throw error;
+    //     });
+
+    // const result = await res.json();
 
     // const prop = res.json();
 
     return {
         props: {
-            data: result,
+            data: res,
         },
     };
 };
