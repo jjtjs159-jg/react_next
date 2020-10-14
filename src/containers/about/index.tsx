@@ -1,13 +1,20 @@
 import React, { FunctionComponent, Fragment } from 'react';
+import { GetStaticProps, NextPage, NextPageContext } from 'next';
 import { Header } from 'components/headers';
 
-interface Props {}
+interface Props {
+    data: {
+        name: string;
+    };
+}
 
-const Index: FunctionComponent<Props> = ({}) => {
+const Index: NextPage<Props> = ({ data }) => {
+    console.log('about==');
+    console.log(data);
     return (
         <Fragment>
             <Header />
-            About
+            {data.name}
         </Fragment>
     );
 };

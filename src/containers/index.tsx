@@ -32,11 +32,11 @@ class Index extends Component<Props, State> {
     //     });
     // };
 
-    render(): JSX.Element {
+    render() {
         return (
-            <div>
+            <Fragment>
                 <Header />
-            </div>
+            </Fragment>
         );
     }
 }

@@ -1,4 +1,5 @@
-import App from 'next/app';
+import App, { AppProps, AppContext } from 'next/app';
+import '@babel/polyfill';
 import React from 'react';
 
 /**
@@ -9,16 +10,19 @@ import React from 'react';
  * 추가적인 데이터를 페이지로 주입시키는 것이 가능하다.
  * 글로벌 CSS를 선언한다.
  */
-class Home extends App {
-
+class Home extends App<AppProps, any> {
     render() {
-        console.log('Home APP')
+        console.log('Home APP');
         const { Component, pageProps } = this.props;
 
-        return (
-            <Component {...pageProps} />
-        )
+        return <Component {...pageProps} />;
     }
 }
+
+// Home.getInitialProps = async (appContext: AppContext) => {
+//     const appProps = await App.getInitialProps(appContext);
+
+//     return { ...appProps };
+// };
 
 export default Home;

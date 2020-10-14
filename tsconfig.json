@@ -7,7 +7,7 @@
                 "./containers/*"
             ],
             "components/*": [
-                "./components/*"
+                "components/*"
             ],
         },
         "noImplicitAny": true,
