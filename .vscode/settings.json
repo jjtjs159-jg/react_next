@@ -1,14 +1,14 @@
 {
     "editor.tabSize": 4,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
+        "source.fixAll.eslint": true
     },
     "editor.formatOnSave": false,
     "eslint.alwaysShowStatus": true,
     "typescript.tsdk": "node_modules\\typescript\\lib",
     "workbench.colorCustomizations": {
         "activityBar.foreground": "#7A9EFF",
-        "badge.background": "#0088AA",
+        "badge.background": "#0088AA"
     },
     "editor.tokenColorCustomizations": {
         "textMateRules": [
@@ -18,13 +18,13 @@
                     "foreground": "#7A9EFF",
                     "fontStyle": "italic"
                 }
-            },
+            }
         ]
     },
-    "eslint.validate":  [
+    "eslint.validate": [
         "javascript",
         "javascriptreact",
         "typescript",
         "typescriptreact"
-    ],
+    ]
 }

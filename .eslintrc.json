@@ -27,7 +27,8 @@
     "rules": {
         "prettier/prettier": ["warn", {}, {
             "usePrettierrc": true
-        }]
+        }],
+        "@typescript-eslint/no-explicit-any": "off"
     },
     "settings": {
         "react": {
