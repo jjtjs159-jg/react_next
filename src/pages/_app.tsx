@@ -1,5 +1,5 @@
 import App, { AppProps, AppContext } from 'next/app';
-import '@babel/polyfill';
+// import '@babel/polyfill';
 import React from 'react';
 
 /**
