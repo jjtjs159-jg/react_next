@@ -1,4 +1,6 @@
 import App, { AppProps } from 'next/app';
+import Head from 'next/head';
+import { Fragment } from 'react';
 import './_app.scss';
 
 /**
@@ -14,7 +16,18 @@ class Home extends App<AppProps, any> {
         console.log('Home APP');
         const { Component, pageProps } = this.props;
 
-        return <Component {...pageProps} />;
+        return (
+            <Fragment>
+                <Head>
+                    {/* Viewport meta tags should not be used in _document.js's <Head> */}
+                    <meta
+                        name="viewport"
+                        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0"
+                    />
+                </Head>
+                <Component {...pageProps} />
+            </Fragment>
+        );
     }
 }
 
