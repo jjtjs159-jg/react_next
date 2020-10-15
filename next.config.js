@@ -1,9 +1,12 @@
 const dotenv = require('dotenv');
 const webpack = require('webpack');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+});
 
 dotenv.config();
 
-module.exports = {
+module.exports = withBundleAnalyzer({
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
@@ -28,4 +31,4 @@ module.exports = {
     //         },
     //     ]
     // },
-}
+});
