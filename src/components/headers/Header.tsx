@@ -1,20 +1,24 @@
 import { FunctionComponent, Fragment } from 'react';
 import Link from 'next/link';
+import styles from './Header.module.scss';
 
 const Header: FunctionComponent = () => {
     return (
         <Fragment>
-            <div>
+            <div className={styles.nav}>
                 <Link href="/">main</Link>
             </div>
-            <div>
+            <div className={styles.nav}>
                 <Link href="/about">abount</Link>
             </div>
-            <div>
+            <div className={styles.nav}>
                 <Link href={`/student/2`}>student 404</Link>
             </div>
-            <div>
+            <div className={styles.nav}>
                 <Link href={`/student/22`}>student OK</Link>
+            </div>
+            <div className={styles.nav}>
+                <Link href="/teacher">teacher</Link>
             </div>
         </Fragment>
     );

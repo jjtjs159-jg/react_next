@@ -1,0 +1,14 @@
+@import "constants/colors.scss";
+
+.nav {
+    padding: 0px 15px;
+    display: inline-block;
+
+    @media (min-width: 640px) {
+        border: 1px solid $colorPink;
+    }
+
+    &:hover {
+        background-color: yellow;
+    }
+}

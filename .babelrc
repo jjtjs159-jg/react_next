@@ -5,6 +5,7 @@
             {
                 "preset-env": {
                     "targets": {
+                        // 최신 2개 버전과, 한국 5%이상 점유율의 브라우저 모두 지원
                         "browsers": ["last 2 versions", ">= 5% in KR"]
                     },
                     "useBuiltIns": "usage",

@@ -1,4 +1,5 @@
 import App, { AppProps } from 'next/app';
+import './_app.scss';
 
 /**
  * App 이용 시

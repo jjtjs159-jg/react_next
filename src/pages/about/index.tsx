@@ -52,9 +52,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
     // const prop = res.json();
 
+    console.log(res);
+
     return {
         props: {
-            data: res,
+            data: res.data,
         },
     };
 };

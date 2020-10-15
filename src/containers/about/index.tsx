@@ -14,7 +14,7 @@ const Index: NextPage<Props> = ({ data }) => {
     return (
         <Fragment>
             <Header />
-            {data.name}
+            {data.name} ABOUT
         </Fragment>
     );
 };
