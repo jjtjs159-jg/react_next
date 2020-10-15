@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     console.log('getStaticProps');
     const res = await axios({
         method: 'GET',
-        url: 'http://localhost:8080' + '/',
+        url: process.env.API_URL + '/',
     })
         .then((response) => {
             return response;
