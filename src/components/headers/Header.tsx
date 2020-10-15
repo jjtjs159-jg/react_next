@@ -20,6 +20,9 @@ const Header: FunctionComponent = () => {
             <div className={styles.nav}>
                 <Link href="/teacher">teacher</Link>
             </div>
+            <div className={styles.nav}>
+                <Link href="/asd">asd</Link>
+            </div>
         </Fragment>
     );
 };
