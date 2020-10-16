@@ -9,7 +9,9 @@ const Header: FunctionComponent = () => {
                 <Link href="/">main</Link>
             </div>
             <div className={styles.nav}>
-                <Link href="/about">abount</Link>
+                <Link href="/about" scroll={false}>
+                    abount
+                </Link>
             </div>
             <div className={styles.nav}>
                 <Link href={`/student/2`}>student 404</Link>
