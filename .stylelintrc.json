@@ -25,7 +25,7 @@
             true,
             {
                 "ignoreAtRules": [
-                    "mixin", "include"
+                    "mixin", "include", "charset", "function", "each", "if", "else", "error", "warn", "return"
                 ]
             }
         ],
