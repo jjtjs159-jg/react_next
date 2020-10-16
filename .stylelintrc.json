@@ -21,11 +21,12 @@
                 "ignoreAtRules": ["import"]
             }
         ],
+        "block-no-empty": null,
         "at-rule-no-unknown": [
             true,
             {
                 "ignoreAtRules": [
-                    "mixin", "include", "charset", "function", "each", "if", "else", "error", "warn", "return"
+                    "mixin", "include", "charset", "function", "for", "each", "if", "else", "error", "warn", "return"
                 ]
             }
         ],
