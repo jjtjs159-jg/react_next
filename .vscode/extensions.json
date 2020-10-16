@@ -7,6 +7,7 @@
         "pkief.material-icon-theme",
         "mikaelkristiansson87.react-theme-vscode",
         "mrmlnc.vscode-scss",
-        "stylelint.vscode-stylelint"
+        "stylelint.vscode-stylelint",
+        "dbaeumer.vscode-eslint"
     ]
 }
