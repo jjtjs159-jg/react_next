@@ -6,6 +6,7 @@
         "mhutchie.git-graph",
         "pkief.material-icon-theme",
         "mikaelkristiansson87.react-theme-vscode",
-        "mrmlnc.vscode-scss"
+        "mrmlnc.vscode-scss",
+        "stylelint.vscode-stylelint"
     ]
 }
