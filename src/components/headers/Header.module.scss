@@ -1,4 +1,5 @@
 @import "constants/colors.scss"; // 루트 import의 경우 직접 파일 정의로 갈수는 없는가 ?
+@import "helpers/responsive.scss";
 
 @mixin common-nav {
     margin: 0;
@@ -11,7 +12,7 @@
     display: inline-block;
     @include common-nav(); // include가 위로 위치하게 하고 싶다.
 
-    @media (min-width: 640px) {
+    @include media(">sm") {
         border: 1px solid $colorPink;
     }
 }
