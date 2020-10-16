@@ -11,8 +11,6 @@ interface Props {
 }
 
 const Index: NextPage<Props> = ({ data }) => {
-    console.log('student==');
-    console.log(data);
     const router = useRouter();
     const handleClick = () => {
         router.push('/sad');

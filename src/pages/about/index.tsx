@@ -20,7 +20,6 @@ interface Props {
  *
  */
 export const getStaticProps: GetStaticProps<Props> = async () => {
-    console.log('getStaticProps');
     const res = await axios({
         method: 'GET',
         url: process.env.API_URL + '/',
@@ -29,7 +28,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             return response;
         })
         .catch((error) => {
-            console.log(error);
             const errorResponse = error.response || {
                 success: false,
                 status: error.response || 500,
@@ -51,8 +49,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     // const result = await res.json();
 
     // const prop = res.json();
-
-    console.log(res);
 
     return {
         props: {

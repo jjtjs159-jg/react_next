@@ -9,8 +9,6 @@ interface Props {
 }
 
 const Index: NextPage<Props> = ({ data }) => {
-    console.log('about==');
-    console.log(data);
     return (
         <Fragment>
             <Header />

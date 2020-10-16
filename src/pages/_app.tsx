@@ -13,7 +13,6 @@ import './_app.scss';
  */
 class Home extends App<AppProps, any> {
     render() {
-        console.log('Home APP');
         const { Component, pageProps } = this.props;
 
         return (

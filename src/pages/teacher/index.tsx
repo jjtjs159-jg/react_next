@@ -21,7 +21,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
             return response;
         })
         .catch((error) => {
-            console.log(error);
             const errorResponse = error.response || {
                 success: false,
                 status: error.response || 500,

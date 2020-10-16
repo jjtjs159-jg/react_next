@@ -12,8 +12,6 @@ interface Props {
  * 빌드 타임에 가능한 모든 경우의 수를 가져와서 빌드한다.
  */
 export const getStaticPaths: GetStaticPaths = async () => {
-    console.log('getStaticPaths');
-
     return {
         // value는 반드시 string이어야 한다.
         paths: [
@@ -39,7 +37,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-    console.log('getStaticProps');
     const res = await axios({
         method: 'GET',
         url: process.env.API_URL + '/',
@@ -48,7 +45,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
             return response;
         })
         .catch((error) => {
-            console.log(error);
             const errorResponse = error.response || {
                 success: false,
                 status: error.response || 500,
