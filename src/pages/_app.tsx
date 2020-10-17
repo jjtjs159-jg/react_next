@@ -1,6 +1,8 @@
 import App, { AppProps } from 'next/app';
-import Head from 'next/head';
 import { Fragment } from 'react';
+import Head from 'next/head';
+import Router from 'next/router';
+import ga from 'analytics/ga';
 import './_app.scss';
 
 /**
@@ -12,6 +14,44 @@ import './_app.scss';
  * 글로벌 CSS를 선언한다.
  */
 class Home extends App<AppProps, any> {
+    componentDidMount() {
+        if (!window.ga) {
+            ga.initGA();
+        }
+
+        Router.router.events.on(
+            'routeChangeStart',
+            this.handleRouteChangeStart,
+        );
+        Router.router.events.on(
+            'routeChangeError',
+            this.handleRouteChangeError,
+        );
+        Router.router.events.on(
+            'routeChangeComplete',
+            this.handleRouteChangeComplete,
+        );
+    }
+
+    componentWillUnmount() {
+        Router.router.events.off(
+            'routeChangeComplete',
+            this.handleRouteChangeComplete,
+        );
+    }
+
+    handleRouteChangeStart = () => {
+        console.log('start');
+    };
+
+    handleRouteChangeError = () => {
+        console.log('error');
+    };
+
+    handleRouteChangeComplete = () => {
+        ga.logPageView();
+        console.log('complete');
+    };
     render() {
         const { Component, pageProps } = this.props;
 
