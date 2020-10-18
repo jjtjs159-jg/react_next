@@ -1,10 +1,10 @@
-import { FunctionComponent, Fragment } from 'react';
+import { FunctionComponent } from 'react';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 
 const Header: FunctionComponent = () => {
     return (
-        <Fragment>
+        <div>
             <div className={styles.nav}>
                 <Link href="/">main</Link>
             </div>
@@ -25,7 +25,7 @@ const Header: FunctionComponent = () => {
             <div className={styles.nav}>
                 <Link href="/asd">asd</Link>
             </div>
-        </Fragment>
+        </div>
     );
 };
 

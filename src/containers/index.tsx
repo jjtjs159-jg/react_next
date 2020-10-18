@@ -1,5 +1,9 @@
 import { Component, Fragment } from 'react';
 import { Header } from 'components/headers';
+import classnames from 'classnames/bind';
+import styles from './index.module.scss';
+
+const cx = classnames.bind(styles);
 
 // const Index: FunctionComponent = () => {
 //     return <Fragment>메인페이지</Fragment>;
@@ -36,6 +40,9 @@ class Index extends Component<Props, State> {
         return (
             <Fragment>
                 <Header />
+                <div className={cx('index-background')}>
+                    <img src="/leaves.png" alt="leavs" />
+                </div>
             </Fragment>
         );
     }

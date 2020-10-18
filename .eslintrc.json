@@ -28,6 +28,13 @@
         "prettier/prettier": ["warn", {}, {
             "usePrettierrc": true
         }],
+        // "object-curly-newline": ["error", {
+        //     "ImportDeclaration": "never",
+        //     "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+        // }],
+        // "function-call-argument-newline": [
+        //     "warn", "always"
+        // ],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "react/prop-types": 0,

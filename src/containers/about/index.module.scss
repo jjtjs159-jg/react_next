@@ -1,0 +1,21 @@
+.color {
+    color: yellow;
+
+    &.active_hover {
+        &:hover {
+            color: blue;
+        }
+    }
+
+    &.active_under {
+        border-bottom: 1px solid black;
+    }
+
+    &.active_radius {
+        border-radius: 15px;
+    }
+}
+
+.background {
+    background-color: red;
+}
