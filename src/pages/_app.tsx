@@ -1,5 +1,6 @@
 import App, { AppProps } from 'next/app';
 import { Fragment } from 'react';
+import Wrapper from 'store/store';
 import Head from 'next/head';
 import Router from 'next/router';
 import ga from 'analytics/ga';
@@ -77,4 +78,4 @@ class Home extends App<AppProps, any> {
 //     return { ...appProps };
 // };
 
-export default Home;
+export default Wrapper.withRedux(Home);

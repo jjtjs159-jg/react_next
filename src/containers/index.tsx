@@ -1,5 +1,8 @@
 import { Component, Fragment } from 'react';
 import { Header } from 'components/headers';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import * as userActions from 'actions/User';
 import classnames from 'classnames/bind';
 import styles from './index.module.scss';
 
@@ -10,6 +13,7 @@ const cx = classnames.bind(styles);
 // };
 
 interface Props {
+    dispatch: Dispatch;
     [key: string]: any;
 }
 
@@ -25,9 +29,8 @@ class Index extends Component<Props, State> {
         };
     }
 
-    static getDerivedStateFromProps(): State | null {
-        console.log('zz');
-        return null;
+    componentDidMount() {
+        this.props.dispatch(userActions.getUser());
     }
 
     // handleClick = () => {
@@ -47,5 +50,10 @@ class Index extends Component<Props, State> {
         );
     }
 }
+const mapStateToProps = (state: any) => {
+    return {
+        user: state.user,
+    };
+};
 
-export default Index;
+export default connect(mapStateToProps)(Index);

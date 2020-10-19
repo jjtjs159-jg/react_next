@@ -10,7 +10,6 @@ interface Props {
 
 const Index: FunctionComponent<Props> = ({ data }) => {
     const context = useContext(ThemeContext);
-    console.log(context);
     const [theme, setTheme] = useState(context.theme);
 
     context.toggleTheme = () => {
