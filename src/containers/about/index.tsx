@@ -1,10 +1,10 @@
-import { Fragment } from 'react';
-import { NextPage } from 'next';
+import { Component } from 'react';
 import { Header } from 'components/headers';
-import classnames from 'classnames/bind';
-import styles from './index.module.scss';
+import { ThemeContext, themes, Theme } from 'contexts/Theme/ThemeContext';
+// import classnames from 'classnames/bind';
+// import styles from './index.module.scss';
 
-const cx = classnames.bind(styles);
+// const cx = classnames.bind(styles);
 
 interface Props {
     data: {
@@ -13,22 +13,46 @@ interface Props {
     };
 }
 
-const Index: NextPage<Props> = ({ data }) => {
-    // const classes = cx('color', {
-    //     active_hover: !data.id,
-    // });
+interface State {
+    theme: Theme;
+    toggleTheme: () => void;
+}
 
-    const classes = cx('color', {
-        active_hover: !data.id,
-    });
+class Index extends Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
 
-    return (
-        <Fragment>
-            <Header />
-            <div className={classes}>어어어어</div>
-            {data.name} ABOUT
-        </Fragment>
-    );
-};
+        this.state = {
+            theme: themes.light,
+            toggleTheme: () => {
+                this.setState({
+                    theme:
+                        this.state.theme === themes.light
+                            ? themes.dark
+                            : themes.light,
+                });
+            },
+        };
+    }
+    render() {
+        const { data } = this.props;
+
+        return (
+            <ThemeContext.Provider value={this.state}>
+                <ThemeContext.Consumer>
+                    {({ theme, toggleTheme }) => (
+                        <div style={{ ...theme }}>
+                            <Header />
+                            <div>어어어어</div>
+                            {data.name} ABOUT
+                            <br />
+                            <button onClick={toggleTheme}>Change Theme</button>
+                        </div>
+                    )}
+                </ThemeContext.Consumer>
+            </ThemeContext.Provider>
+        );
+    }
+}
 
 export default Index;

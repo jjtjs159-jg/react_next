@@ -10,7 +10,7 @@ const Header: FunctionComponent = () => {
             </div>
             <div className={styles.nav}>
                 <Link href="/about" scroll={false}>
-                    abount
+                    about
                 </Link>
             </div>
             <div className={styles.nav}>
