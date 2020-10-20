@@ -15,7 +15,7 @@ interface Props {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const res = await axios({
         method: 'GET',
-        url: process.env.API_URL + '/teacher',
+        url: process.env.NEXT_PUBLIC_API_URL + '/teacher',
     })
         .then((response) => {
             return response;

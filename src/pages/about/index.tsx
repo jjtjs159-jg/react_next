@@ -22,7 +22,7 @@ interface Props {
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const res = await axios({
         method: 'GET',
-        url: process.env.API_URL + '/',
+        url: process.env.NEXT_PUBLIC_API_URL + '/',
     })
         .then((response) => {
             return response;

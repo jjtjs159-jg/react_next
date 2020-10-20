@@ -1,8 +1,8 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Header } from 'components/headers';
-import useSWR from 'swr';
+import { useFetcher } from 'hooks';
 
 interface Props {
     data: {
@@ -11,15 +11,13 @@ interface Props {
     };
 }
 
-const fetcher = (url) => fetch(url).then((res) => res.text());
-
 const Index: NextPage<Props> = ({ data }) => {
     const router = useRouter();
     const handleClick = () => {
         router.push('/sad');
     };
 
-    const { data: fetchedData, error } = useSWR('/api/user', fetcher);
+    const { data: fetchedData, error } = useFetcher('/');
 
     if (error) {
         return <div>error...!</div>;
