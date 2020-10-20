@@ -63,7 +63,7 @@ class Home extends App<AppProps, any> {
                     {/* Viewport meta tags should not be used in _document.js's <Head> */}
                     <meta
                         name="viewport"
-                        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0"
+                        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no"
                     />
                 </Head>
                 <Component {...pageProps} />
