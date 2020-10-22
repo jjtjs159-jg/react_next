@@ -65,6 +65,10 @@ class Home extends App<AppProps, any> {
                         name="viewport"
                         content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no"
                     />
+                    {/* <meta
+                        name="viewport"
+                        content="minimum-scale=1, initial-scale=1, width=device-width"
+                    /> */}
                 </Head>
                 <Component {...pageProps} />
             </Fragment>

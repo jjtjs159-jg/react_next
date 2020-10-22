@@ -1,6 +1,8 @@
-import { Component } from 'react';
+import { Component, Fragment } from 'react';
 import { Header } from 'components/headers';
 import { ThemeContext, themes, Theme } from 'contexts/Theme/ThemeContext';
+import BaseDialog from 'components/dialogs/BaseDialog';
+import Button from '@material-ui/core/Button';
 // import classnames from 'classnames/bind';
 // import styles from './index.module.scss';
 
@@ -16,6 +18,7 @@ interface Props {
 interface State {
     theme: Theme;
     toggleTheme: () => void;
+    isOpenDialog: boolean;
 }
 
 class Index extends Component<Props, State> {
@@ -32,25 +35,57 @@ class Index extends Component<Props, State> {
                             : themes.light,
                 });
             },
+            isOpenDialog: false,
         };
     }
+
+    handleDialog = () => {
+        this.setState({
+            isOpenDialog: !this.state.isOpenDialog,
+        });
+    };
+
     render() {
         const { data } = this.props;
+        const { isOpenDialog } = this.state;
 
         return (
-            <ThemeContext.Provider value={this.state}>
-                <ThemeContext.Consumer>
-                    {({ theme, toggleTheme }) => (
-                        <div style={{ ...theme }}>
-                            <Header />
-                            <div>어어어어</div>
-                            {data.name} ABOUT
+            <Fragment>
+                <ThemeContext.Provider value={this.state}>
+                    <ThemeContext.Consumer>
+                        {({ theme, toggleTheme }) => (
+                            <div style={{ ...theme }}>
+                                <Header />
+                                <div>어어어어</div>
+                                {data.name} ABOUT
+                                <br />
+                                <button onClick={toggleTheme}>
+                                    Change Theme
+                                </button>
+                                <button onClick={this.handleDialog}>
+                                    Open Dialog
+                                </button>
+                            </div>
+                        )}
+                    </ThemeContext.Consumer>
+                </ThemeContext.Provider>
+                {isOpenDialog && (
+                    <BaseDialog onClose={this.handleDialog}>
+                        <h1>Dialog Title</h1>
+                        <div style={{ textAlign: 'center' }}>
+                            Contents
                             <br />
-                            <button onClick={toggleTheme}>Change Theme</button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={() => alert('버튼클릭')}
+                            >
+                                Click
+                            </Button>
                         </div>
-                    )}
-                </ThemeContext.Consumer>
-            </ThemeContext.Provider>
+                    </BaseDialog>
+                )}
+            </Fragment>
         );
     }
 }

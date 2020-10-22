@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Header } from 'components/headers';
 import { useFetcher } from 'hooks';
+import Button from '@material-ui/core/Button';
 
 interface Props {
     data: {
@@ -24,10 +25,8 @@ const Index: NextPage<Props> = ({ data }) => {
     }
 
     if (!data) {
-        return <div>!data...</div>;
+        return <div>! data...</div>;
     }
-
-    console.log(fetchedData);
 
     return (
         <Fragment>
@@ -35,7 +34,10 @@ const Index: NextPage<Props> = ({ data }) => {
             Student
             <br />
             {data.name}
-            <button onClick={handleClick}>클릭</button>
+            <br />
+            <Button variant="contained" color="primary" onClick={handleClick}>
+                Click
+            </Button>
         </Fragment>
     );
 };
