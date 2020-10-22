@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from 'react';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { BasePortal } from 'components/utils';
 import classnames from 'classnames/bind';
 import styles from './BaseDialog.module.scss';
@@ -17,9 +17,9 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
     const portalRef = useRef(portalElement);
     const dialogRef = useRef(null);
 
-    useEffect(() => {
-        const focusedElementBeforeDialog = document.activeElement;
+    const [active] = useState<HTMLElement>(document.activeElement as HTMLElement);
 
+    useEffect(() => {
         const focusableElements = Array.prototype.slice.call(
             dialogRef.current.querySelectorAll(focusableElementsString),
         );
@@ -33,12 +33,6 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
         const handleTrapTabKey = (e: KeyboardEvent) => {
             // Check for TAB key press, keyCode 9
             if (e.key === 'Tab') {
-                if (!focusableElements.includes(document.activeElement)) {
-                    e.preventDefault();
-                    focusableElements[0].focus();
-                    return;
-                }
-
                 // SHIFT + TAB
                 if (e.shiftKey) {
                     if (document.activeElement === firstFocusableElement) {
@@ -64,11 +58,23 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
                 e.preventDefault();
             }
         };
+
+        const handleFocusin = (e: FocusEvent) => {
+            if (!dialogRef.current.contains(e.target)) {
+                e.preventDefault();
+                focusableElements[0].focus();
+            }
+        };
+
         window.addEventListener('keydown', handleTrapTabKey);
+        window.addEventListener('focusin', handleFocusin);
 
         return () => {
-            // focusedElementBeforeDialog.focus();
             window.removeEventListener('keydown', handleTrapTabKey);
+            window.removeEventListener('focusin', handleFocusin);
+
+            // focus element before open dialog
+            active.focus();
         };
     }, []);
 
