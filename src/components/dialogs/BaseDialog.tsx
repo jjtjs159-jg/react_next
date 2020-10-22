@@ -18,17 +18,27 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
     const dialogRef = useRef(null);
 
     useEffect(() => {
-        const focusableElements = dialogRef.current.querySelectorAll(
-            focusableElementsString,
+        const focusedElementBeforeDialog = document.activeElement;
+
+        const focusableElements = Array.prototype.slice.call(
+            dialogRef.current.querySelectorAll(focusableElementsString),
         );
 
+        // Focus on dialog at first mount
+        focusableElements[0].focus();
+
         const firstFocusableElement = focusableElements[0];
-        const lastFocusableElement =
-            focusableElements[focusableElements.length - 1];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
         const handleTrapTabKey = (e: KeyboardEvent) => {
             // Check for TAB key press, keyCode 9
             if (e.key === 'Tab') {
+                if (!focusableElements.includes(document.activeElement)) {
+                    e.preventDefault();
+                    focusableElements[0].focus();
+                    return;
+                }
+
                 // SHIFT + TAB
                 if (e.shiftKey) {
                     if (document.activeElement === firstFocusableElement) {
@@ -47,10 +57,6 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
             // ESCAPE, keyCode 27
             if (e.key === 'Escape') {
                 onClose();
-                // const activeElement = document.activeElement;
-                // if (activeElement.fo) {
-                //     activeElement.focus();
-                // }
             }
 
             // Enter, keyCode 13
@@ -58,17 +64,17 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
                 e.preventDefault();
             }
         };
-
         window.addEventListener('keydown', handleTrapTabKey);
 
         return () => {
+            // focusedElementBeforeDialog.focus();
             window.removeEventListener('keydown', handleTrapTabKey);
         };
     }, []);
 
     return (
         <BasePortal container={portalRef}>
-            <div ref={dialogRef} className={cx('wrapper')}>
+            <div className={cx('wrapper')} ref={dialogRef}>
                 <div className={cx('dialog')} tabIndex={0}>
                     {children}
                 </div>
