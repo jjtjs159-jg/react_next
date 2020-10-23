@@ -26,10 +26,11 @@
             true,
             {
                 "ignoreAtRules": [
-                    "mixin", "include", "charset", "function", "for", "each", "if", "else", "error", "warn", "return"
+                    "mixin", "include", "charset", "function", "for", "each", "if", "else", "error", "warn", "return", "extend"
                 ]
             }
         ],
-        "max-nesting-depth": 2
+        "max-nesting-depth": 2,
+        "declaration-empty-line-before": "never"
     }
 }
