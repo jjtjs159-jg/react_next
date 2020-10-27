@@ -36,42 +36,58 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-    const res = await axios({
-        method: 'GET',
-        url: process.env.NEXT_PUBLIC_API_URL + '/',
-    })
-        .then((response) => {
-            return response;
-        })
-        .catch((error) => {
-            const errorResponse = error.response || {
-                success: false,
-                status: error.response || 500,
-                message: '실패',
-            };
-
-            return errorResponse;
-            // throw error;
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    try {
+        const response = await axios({
+            method: 'GET',
+            url: process.env.NEXT_PUBLIC_API_URL + '/',
         });
-    // const res = await fetch('http://localhost:8080' + '/')
-    //     .then((response) => {
-    //         return response;
-    //     })
-    //     .catch((error: Error) => {
-    //         return null;
-    //         // throw error;
-    //     });
 
-    // const result = await res.json();
-
-    // const prop = res.json();
-
-    return {
-        props: {
-            data: res.data,
-        },
-    };
+        return {
+            props: {
+                data: response.data,
+            },
+        };
+    } catch (error) {
+        return (
+            error.response || {
+                props: {
+                    data: {},
+                    error: {
+                        success: false,
+                        status: error.response || 500,
+                        message: '실패',
+                    },
+                },
+            }
+        );
+    }
 };
+
+// export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+//     const res = await axios({
+//         method: 'GET',
+//         url: process.env.NEXT_PUBLIC_API_URL + '/',
+//     })
+//         .then((response) => {
+//             return response;
+//         })
+//         .catch((error) => {
+//             const errorResponse = error.response || {
+//                 success: false,
+//                 status: error.response || 500,
+//                 message: '실패',
+//             };
+
+//             return errorResponse;
+//             // throw error;
+//         });
+
+//     return {
+//         props: {
+//             data: res.data,
+//         },
+//     };
+// };
 
 export default Page;

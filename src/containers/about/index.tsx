@@ -13,6 +13,7 @@ interface Props {
         name?: string;
         id?: number;
     };
+    error: any;
 }
 
 interface State {
@@ -53,7 +54,7 @@ class Index extends Component<Props, State> {
                         {({ theme, toggleTheme }) => (
                             <div style={{ ...theme }}>
                                 <Header />
-                                <div>어어어어</div>
+                                <div>어어어어aa</div>
                                 {data.name} ABOUT
                                 <br />
                                 <button onClick={toggleTheme}>Change Theme</button>
