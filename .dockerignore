@@ -4,3 +4,4 @@ Dockerfile
 *.Dockerfile
 *.editorconfig
 .vscode
+node_modules

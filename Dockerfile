@@ -1,17 +1,18 @@
 FROM node:12
 
-ENV PORT 3000
+# ENV PORT 8000
 
-RUN mkdir -p /usr/src/app
+# RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package*.json /usr/src/app/
+COPY package*.json ./
 RUN npm install
 
-COPY . /usr/src/app
+COPY . .
 
 RUN npm run build
-EXPOSE 3000
+EXPOSE 9000
+
 
 # CMD "npm" "run" "dev"
-CMD ["yarn", "dev"]
+CMD ["npm", "start"]
