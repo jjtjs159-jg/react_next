@@ -1,4 +1,9 @@
+@import "constants/colors";
 @import "./font";
+
+// html {
+//     font-size: 75%;
+// }
 
 a {
     text-decoration: none;
@@ -16,6 +21,13 @@ img {
 
 body {
     margin: 0;
+    background-color: $colorSky;
+}
+
+#__next {
+    max-width: 1720px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 ul {
@@ -24,6 +36,7 @@ ul {
     margin: 0;
 }
 
-h1 {
+h1,
+h2 {
     margin: 0;
 }

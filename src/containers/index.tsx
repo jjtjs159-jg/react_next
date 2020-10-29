@@ -1,4 +1,4 @@
-import { Component, Fragment } from 'react';
+import { Component, Fragment, createRef } from 'react';
 // import { Header } from 'components/headers';
 import DynamicHeader from 'components/headers/DynamicHeader';
 import { Dispatch } from 'redux';
@@ -23,8 +23,10 @@ interface State {
 }
 
 class Index extends Component<Props, State> {
+    private contentRef = createRef<HTMLHeadingElement>();
     constructor(props: Props) {
         super(props);
+
         this.state = {
             loaded: false,
         };
@@ -43,9 +45,23 @@ class Index extends Component<Props, State> {
     render() {
         return (
             <Fragment>
-                <DynamicHeader />
+                <DynamicHeader stickyRef={this.contentRef} />
                 <main className={styles.main}>
-                    <div style={{ height: '1500px' }}></div>
+                    <section>
+                        <h2 className={styles['main-title']}>
+                            <span>Smart Health Care</span>
+                        </h2>
+                        <div className={styles['content-wrap']} ref={this.contentRef}>
+                            <span className={styles.wave} />
+                            <div className={styles.content}>
+                                <article className={styles.service}>service</article>
+                                <article className={styles.service}>service</article>
+                                <article className={styles.service}>service</article>
+                                <article className={styles.service}>service</article>
+                                <article className={styles.service}>service</article>
+                            </div>
+                        </div>
+                    </section>
                 </main>
             </Fragment>
         );

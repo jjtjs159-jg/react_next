@@ -1,5 +1,51 @@
 @import "constants/colors";
 
 .main {
-    background-color: $colorGreen2;
+    // background-color: $colorGreen2;
+    padding-top: 325px;
+}
+
+.main-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 250px;
+    background-image: url('/favicon.png');
+    background-repeat: no-repeat;
+    background-position: center -150px;
+    text-align: center;
+
+    & > span {
+        font-weight: 300;
+        font-size: 3rem;
+    }
+}
+
+.wave {
+    background-image: url('/wave.svg');
+    background-repeat: repeat;
+    background-position: center;
+    display: block;
+    height: 44px;
+}
+
+.content-wrap {
+    position: relative;
+    z-index: 10;
+    height: 1500px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: $colorSky;
+}
+
+.service {
+    background-color: $colorGreen3;
+    width: calc(25% - 30px);
+    height: 250px;
+    margin-bottom: 30px;
 }

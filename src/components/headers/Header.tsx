@@ -1,19 +1,24 @@
-import { FunctionComponent, useEffect, useState, useRef } from 'react';
+import { FunctionComponent, useEffect, useState, useRef, MutableRefObject } from 'react';
 import Link from 'next/link';
 import classnames from 'classnames/bind';
 import styles from './Header.module.scss';
 
 const cx = classnames.bind(styles);
 
-const Header: FunctionComponent = () => {
+interface Props {
+    // Content(div) Ref
+    stickyRef: MutableRefObject<HTMLDivElement>;
+}
+
+const Header: FunctionComponent<Props> = ({ stickyRef }) => {
     // <div className={(styles['header-inner'], styles['headder'])}></div>
 
     const [isActive, setActive] = useState(false);
-    const headerRef = useRef<HTMLHeadElement>(null);
+    // const headerRef = useRef<HTMLHeadElement>(null);
 
     useEffect(() => {
-        if (headerRef.current) {
-            if (window.scrollY > headerRef.current.offsetTop) {
+        if (stickyRef.current) {
+            if (window.scrollY > stickyRef.current.offsetTop + stickyRef.current.offsetHeight) {
                 setActive(true);
             } else {
                 setActive(false);
@@ -21,8 +26,8 @@ const Header: FunctionComponent = () => {
         }
 
         const handleScroll = () => {
-            if (headerRef.current) {
-                if (window.scrollY > headerRef.current.offsetTop) {
+            if (stickyRef.current) {
+                if (window.scrollY > stickyRef.current.offsetTop + stickyRef.current.offsetHeight) {
                     setActive(true);
                 } else {
                     setActive(false);
@@ -46,7 +51,7 @@ const Header: FunctionComponent = () => {
     });
 
     return (
-        <header className={wrapper} ref={headerRef}>
+        <header className={wrapper}>
             <div className={inner}>
                 <div className={styles.logo}>
                     <h1>
