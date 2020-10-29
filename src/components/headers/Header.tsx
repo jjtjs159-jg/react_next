@@ -12,6 +12,15 @@ const Header: FunctionComponent = () => {
     const headerRef = useRef<HTMLHeadElement>(null);
 
     useEffect(() => {
+        if (headerRef.current) {
+            console.log('zz');
+            if (window.scrollY > headerRef.current.offsetTop) {
+                setActive(true);
+            } else {
+                setActive(false);
+            }
+        }
+
         const handleScroll = () => {
             if (headerRef.current) {
                 if (window.scrollY > headerRef.current.offsetTop) {

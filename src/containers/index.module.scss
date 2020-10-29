@@ -1,6 +1,5 @@
-.index-background {
-    display: flex;
-    max-width: 600px;
-    margin: 0 auto;
-    height: 1500px;
+@import "constants/colors";
+
+.main {
+    background-color: $colorGreen2;
 }

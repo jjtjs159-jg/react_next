@@ -44,10 +44,9 @@ class Index extends Component<Props, State> {
         return (
             <Fragment>
                 <DynamicHeader />
-                {/* <div className={cx('index-background')}>
-                    <img src="/leaves.png" alt="leavs" />
-                </div> */}
-                <div style={{ height: '1500px' }}>sasa</div>
+                <main className={styles.main}>
+                    <div style={{ height: '1500px' }}></div>
+                </main>
             </Fragment>
         );
     }
