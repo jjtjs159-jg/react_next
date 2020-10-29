@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react';
-import { Header } from 'components/headers';
+// import { Header } from 'components/headers';
+import DynamicHeader from 'components/headers/DynamicHeader';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as userActions from 'actions/User';
@@ -42,10 +43,11 @@ class Index extends Component<Props, State> {
     render() {
         return (
             <Fragment>
-                <Header />
-                <div className={cx('index-background')}>
+                <DynamicHeader />
+                {/* <div className={cx('index-background')}>
                     <img src="/leaves.png" alt="leavs" />
-                </div>
+                </div> */}
+                <div style={{ height: '1500px' }}>sasa</div>
             </Fragment>
         );
     }

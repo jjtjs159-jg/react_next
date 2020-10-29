@@ -7,16 +7,80 @@
     list-style: none;
 }
 
-.nav {
-    padding: 0 15px;
-    display: inline-block;
-    @include common-nav(); // include가 위로 위치하게 하고 싶다.
+.header {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100px;
+    transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
 
-    @include media(">sm") {
-        border: 1px solid $colorPink;
+    &.active {
+        height: 80px;
     }
 }
 
-.color {
-    color: green;
+.header-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: background 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
+
+    &.active {
+        background: rgba(249, 240, 234, 0.8);
+    }
 }
+
+.logo {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    // transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
+
+    & > h1 {
+        position: absolute;
+        left: 4%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+    }
+}
+
+.nav {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: top;
+    // transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
+
+    & > ul {
+        position: absolute;
+        right: 4%;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: right;
+    }
+
+    & li {
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 2.4rem;
+        font-weight: 600;
+    }
+}
+
+// .nav {
+//     padding: 0 15px;
+//     display: inline-block;
+//     @include common-nav(); // include가 위로 위치하게 하고 싶다.
+
+//     @include media(">sm") {
+//         border: 1px solid $colorPink;
+//     }
+// }
+
+// .color {
+//     color: green;
+// }
