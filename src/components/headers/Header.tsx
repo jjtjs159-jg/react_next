@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import classnames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -7,25 +7,21 @@ const cx = classnames.bind(styles);
 
 const Header: FunctionComponent = () => {
     // <div className={(styles['header-inner'], styles['headder'])}></div>
-    const [isActive, setActive] = useState(false);
-    // useEffect(() => {
-    //     console.log(window.scrollY);
-    //     if (window.scrollY > 100) {
-    //         setActive(true);
-    //     } else {
-    //         setActive(false);
-    //     }
-    // }, [window, window.scrollY]);
 
-    const handleScroll = () => {
-        if (window.scrollY > 100) {
-            setActive(true);
-        } else {
-            setActive(false);
-        }
-    };
+    const [isActive, setActive] = useState(false);
+    const headerRef = useRef<HTMLHeadElement>(null);
 
     useEffect(() => {
+        const handleScroll = () => {
+            if (headerRef.current) {
+                if (window.scrollY > headerRef.current.offsetTop) {
+                    setActive(true);
+                } else {
+                    setActive(false);
+                }
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -42,7 +38,7 @@ const Header: FunctionComponent = () => {
     });
 
     return (
-        <header className={wrapper}>
+        <header className={wrapper} ref={headerRef}>
             <div className={inner}>
                 <div className={styles.logo}>
                     <h1>

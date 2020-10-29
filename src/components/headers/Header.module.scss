@@ -36,7 +36,6 @@
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    // transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
 
     & > h1 {
         position: absolute;
@@ -53,7 +52,6 @@
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    // transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
 
     & > ul {
         position: absolute;
@@ -70,17 +68,3 @@
         font-weight: 600;
     }
 }
-
-// .nav {
-//     padding: 0 15px;
-//     display: inline-block;
-//     @include common-nav(); // include가 위로 위치하게 하고 싶다.
-
-//     @include media(">sm") {
-//         border: 1px solid $colorPink;
-//     }
-// }
-
-// .color {
-//     color: green;
-// }
