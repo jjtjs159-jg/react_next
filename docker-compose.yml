@@ -4,6 +4,8 @@ services:
   app:
     ports:
       - 8000:9000
+    container_name: web
+    restart: always
     build:
       context: ./
       dockerfile: Dockerfile
