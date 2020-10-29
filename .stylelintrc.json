@@ -30,7 +30,7 @@
                 ]
             }
         ],
-        "max-nesting-depth": 2,
+        "max-nesting-depth": 3,
         "declaration-empty-line-before": "never"
     }
 }
