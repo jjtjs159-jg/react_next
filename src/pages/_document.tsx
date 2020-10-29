@@ -13,7 +13,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="ko">
-                <Head></Head>
+                <Head>
+                    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+                </Head>
                 <body>
                     <Main />
                     <div id="portal" />

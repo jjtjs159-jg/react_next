@@ -47,7 +47,7 @@ class Home extends App<AppProps, any> {
         return (
             <Fragment>
                 <Head>
-                    <title>PairWind</title>
+                    <title>HYGLIFE</title>
                     {/* Viewport meta tags should not be used in _document.js's <Head> */}
                     <meta
                         name="viewport"
