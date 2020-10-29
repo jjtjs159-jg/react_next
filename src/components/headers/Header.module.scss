@@ -3,10 +3,29 @@
 
 %hover-effect {
     & > a {
+        position: relative;
         transition: color 0.25s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: -1px;
+            height: 2px;
+            left: 50%;
+            background: none repeat scroll 0 0 transparent;
+            background: $colorDarkGreen;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
 
         &:hover {
             color: $colorDarkGreen;
+
+            &::after {
+                width: 100%;
+                left: 0;
+            }
         }
     }
 }
@@ -45,7 +64,6 @@
     vertical-align: top;
 
     & > h1 {
-        @extend %hover-effect;
         position: absolute;
         left: 4%;
         top: 50%;
