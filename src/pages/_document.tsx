@@ -1,20 +1,14 @@
-import Document, {
-    DocumentContext,
-    Html,
-    Head,
-    Main,
-    NextScript,
-} from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 /**
  * html, body 태그 보강
  */
 class MyDocument extends Document {
-    static async getInitialProps(ctx: DocumentContext) {
-        const initialProps = await Document.getInitialProps(ctx);
+    // static async getInitialProps(ctx: DocumentContext) {
+    //     const initialProps = await Document.getInitialProps(ctx);
 
-        return { ...initialProps };
-    }
+    //     return { ...initialProps };
+    // }
 
     render() {
         return (

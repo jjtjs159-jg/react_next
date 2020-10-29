@@ -20,25 +20,13 @@ class Home extends App<AppProps, any> {
             ga.initGA();
         }
 
-        Router.router.events.on(
-            'routeChangeStart',
-            this.handleRouteChangeStart,
-        );
-        Router.router.events.on(
-            'routeChangeError',
-            this.handleRouteChangeError,
-        );
-        Router.router.events.on(
-            'routeChangeComplete',
-            this.handleRouteChangeComplete,
-        );
+        Router.router.events.on('routeChangeStart', this.handleRouteChangeStart);
+        Router.router.events.on('routeChangeError', this.handleRouteChangeError);
+        Router.router.events.on('routeChangeComplete', this.handleRouteChangeComplete);
     }
 
     componentWillUnmount() {
-        Router.router.events.off(
-            'routeChangeComplete',
-            this.handleRouteChangeComplete,
-        );
+        Router.router.events.off('routeChangeComplete', this.handleRouteChangeComplete);
     }
 
     handleRouteChangeStart = () => {
@@ -76,10 +64,5 @@ class Home extends App<AppProps, any> {
     }
 }
 
-// Home.getInitialProps = async (appContext: AppContext) => {
-//     const appProps = await App.getInitialProps(appContext);
-
-//     return { ...appProps };
-// };
-
+// Next Redux Wrapper의 사용으로 pre-render가 비활성된 상태
 export default Wrapper.withRedux(Home);

@@ -19,6 +19,7 @@ const Index: NextPage<Props> = ({ data }) => {
     };
 
     const { data: fetchedData, error } = useFetcher('/');
+    console.log(fetchedData);
 
     if (error) {
         return <div>error...!</div>;
