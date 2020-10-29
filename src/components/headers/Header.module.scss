@@ -13,10 +13,9 @@
             bottom: -1px;
             height: 2px;
             left: 50%;
-            background: none repeat scroll 0 0 transparent;
+            width: 0;
             background: $colorDarkGreen;
             transition: width 0.3s ease 0s, left 0.3s ease 0s;
-            width: 0;
         }
 
         &:hover {
