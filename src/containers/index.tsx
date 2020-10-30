@@ -73,6 +73,11 @@ class Index extends Component<Props, State> {
                         </div>
                     </section>
                 </main>
+                <footer className={styles.footer}>
+                    <p className={styles.copyright}>
+                        <span>Copyright © 2020- Jakma(Park JongGwang). All right reserved.</span>
+                    </p>
+                </footer>
             </Fragment>
         );
     }

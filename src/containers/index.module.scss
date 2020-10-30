@@ -130,3 +130,14 @@
         opacity: 0;
     }
 }
+
+.footer {
+    padding-top: 9em;
+    position: relative;
+    z-index: 3;
+
+    .copyright {
+        text-align: center;
+        margin-top: 0;
+    }
+}
