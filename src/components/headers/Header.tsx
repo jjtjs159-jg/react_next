@@ -18,7 +18,7 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
 
     useEffect(() => {
         if (stickyRef.current) {
-            if (window.scrollY > stickyRef.current.offsetTop + stickyRef.current.offsetHeight) {
+            if (window.scrollY > stickyRef.current.offsetTop) {
                 setActive(true);
             } else {
                 setActive(false);
@@ -27,7 +27,7 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
 
         const handleScroll = () => {
             if (stickyRef.current) {
-                if (window.scrollY > stickyRef.current.offsetTop + stickyRef.current.offsetHeight) {
+                if (window.scrollY > stickyRef.current.offsetTop) {
                     setActive(true);
                 } else {
                     setActive(false);

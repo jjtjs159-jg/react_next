@@ -50,7 +50,7 @@
     transition: background 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
 
     &.active {
-        background: rgba(255, 255, 255, 0.8);
+        background: #fff;
         border-bottom: 1px solid #f2f2f2;
     }
 }
