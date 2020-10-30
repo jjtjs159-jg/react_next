@@ -54,11 +54,21 @@ class Index extends Component<Props, State> {
                         <div className={styles['content-wrap']} ref={this.contentRef}>
                             <span className={styles.wave} />
                             <div className={styles.content}>
-                                <article className={styles.service}>service</article>
-                                <article className={styles.service}>service</article>
-                                <article className={styles.service}>service</article>
-                                <article className={styles.service}>service</article>
-                                <article className={styles.service}>service</article>
+                                <article className={styles.service}>
+                                    <div className={styles['vertical-wrap']}>
+                                        <span>Survey</span>
+                                        <div className={styles['hover-content']}>
+                                            <h3>Take the quiz</h3>
+                                        </div>
+                                    </div>
+                                </article>
+                                {[1, 2, 3].map((item, i) => (
+                                    <article className={styles.service} key={i}>
+                                        <div className={styles['vertical-wrap']}>
+                                            <span>Coming Soon</span>
+                                        </div>
+                                    </article>
+                                ))}
                             </div>
                         </div>
                     </section>
