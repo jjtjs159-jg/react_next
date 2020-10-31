@@ -67,7 +67,7 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
                             <Link href="/">about</Link>
                         </li>
                         <li>
-                            <Link href="/">contact</Link>
+                            <Link href="/contact">contact</Link>
                         </li>
                     </ul>
                 </nav>
