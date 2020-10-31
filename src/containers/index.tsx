@@ -58,7 +58,9 @@ class Index extends Component<Props, State> {
                                     <div className={styles['vertical-wrap']}>
                                         <span>Survey</span>
                                         <div className={styles['hover-content']}>
-                                            <h3>Take the quiz</h3>
+                                            <h3>
+                                                <span>Take the quiz</span>
+                                            </h3>
                                         </div>
                                     </div>
                                 </article>
