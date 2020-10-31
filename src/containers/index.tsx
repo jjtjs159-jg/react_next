@@ -20,6 +20,7 @@ interface Props {
 
 interface State {
     loaded: boolean;
+    isActive: boolean;
 }
 
 class Index extends Component<Props, State> {
@@ -29,12 +30,32 @@ class Index extends Component<Props, State> {
 
         this.state = {
             loaded: false,
+            isActive: false,
         };
     }
 
     componentDidMount() {
         this.props.dispatch(userActions.getUser());
+        window.addEventListener('scroll', this.handleScroll);
     }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    handleScroll = () => {
+        if (this.contentRef.current) {
+            if (window.scrollY > this.contentRef.current.offsetTop) {
+                this.setState({
+                    isActive: true,
+                });
+            } else {
+                this.setState({
+                    isActive: false,
+                });
+            }
+        }
+    };
 
     // handleClick = () => {
     //     this.setState({
@@ -43,12 +64,17 @@ class Index extends Component<Props, State> {
     // };
 
     render() {
+        const { isActive } = this.state;
+        const classes = cx('main-title', {
+            active: isActive,
+        });
+
         return (
             <Fragment>
                 <DynamicHeader stickyRef={this.contentRef} />
                 <main className={styles.main}>
-                    <section>
-                        <h2 className={styles['main-title']}>
+                    <section className={styles.section}>
+                        <h2 className={classes}>
                             <span>Smart Health Care</span>
                         </h2>
                         <div className={styles['content-wrap']} ref={this.contentRef}>
@@ -72,6 +98,14 @@ class Index extends Component<Props, State> {
                                     </article>
                                 ))}
                             </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 className={styles['section-title']}>
+                            <span>Enjoy Hygge Life</span>
+                        </h2>
+                        <div className={styles['content-wrap']}>
+                            <div className={styles.pattern}>Content</div>
                         </div>
                     </section>
                 </main>
