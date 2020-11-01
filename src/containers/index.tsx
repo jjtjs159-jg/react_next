@@ -153,8 +153,9 @@ class Index extends Component<Props, State> {
                                     <Button
                                         variant="contained"
                                         size="large"
-                                        disableElevation
                                         color="primary"
+                                        href="/contact"
+                                        disableElevation
                                         style={{
                                             borderRadius: 50,
                                             backgroundColor: colors.colorDarkGreen,

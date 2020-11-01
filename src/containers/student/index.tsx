@@ -31,7 +31,7 @@ const Index: NextPage<Props> = ({ data }) => {
 
     return (
         <Fragment>
-            <Header />
+            {/* <Header /> */}
             Student
             <br />
             {data.name}

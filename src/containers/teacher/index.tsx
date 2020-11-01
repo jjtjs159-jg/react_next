@@ -18,7 +18,7 @@ const Index: FunctionComponent<Props> = ({ data }) => {
 
     return (
         <Fragment>
-            <Header />
+            {/* <Header /> */}
             <div style={{ ...theme }}>
                 <br />
                 TEACHER

@@ -53,7 +53,7 @@ class Index extends Component<Props, State> {
                     <ThemeContext.Consumer>
                         {({ theme, toggleTheme }) => (
                             <div style={{ ...theme }}>
-                                <Header />
+                                {/* <Header /> */}
                                 <div>어어어어aa</div>
                                 {data.name} ABOUT
                                 <br />
