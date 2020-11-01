@@ -248,6 +248,34 @@
     }
 }
 
+.landscape {
+    background-image: url('/landscape.jpg');
+    background-repeat: no-repeat;
+    background-position: center 45%;
+    background-size: cover;
+    padding-bottom: 20%;
+    position: relative;
+
+    .inner {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        & > h2 {
+            color: $colorNavy;
+            font-size: 2.4rem;
+            text-transform: uppercase;
+            margin-bottom: 0.6em;
+
+            & > span {
+                font-weight: 300;
+            }
+        }
+    }
+}
+
 @keyframes fade-up {
     from {
         opacity: 0;

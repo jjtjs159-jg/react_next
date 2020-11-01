@@ -169,6 +169,33 @@ class Index extends Component<Props, State> {
                             <div className={styles.more}></div>
                         </div>
                     </section>
+                    <section className={styles.section}>
+                        <h2 className={styles['section-title']}>
+                            <span>Stay up-to-date with our next projects</span>
+                        </h2>
+                        <div className={styles['content-wrap']}>
+                            <div className={styles.landscape}>
+                                <div className={styles.inner}>
+                                    <h2>
+                                        <span>are you ready to enjoy hygge life?</span>
+                                    </h2>
+                                    <Button
+                                        variant="contained"
+                                        size="large"
+                                        color="primary"
+                                        href="/contact"
+                                        disableElevation
+                                        style={{
+                                            borderRadius: 50,
+                                            backgroundColor: colors.colorDarkGreen,
+                                        }}
+                                    >
+                                        Yes, I’m Ready. Sign Me Up Now
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </main>
                 <footer className={styles.footer}>
                     <p className={styles.greeting}>Thanks for stopping by</p>
