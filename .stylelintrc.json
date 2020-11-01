@@ -31,6 +31,7 @@
             }
         ],
         "max-nesting-depth": 3,
+        "value-keyword-case": null,
         "declaration-empty-line-before": "never"
     }
 }
