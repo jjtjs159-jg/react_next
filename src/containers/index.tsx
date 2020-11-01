@@ -72,6 +72,43 @@ class Index extends Component<Props, State> {
         const { classes } = this.props;
         const { isActive } = this.state;
 
+        const continentList = [
+            {
+                name: 'Asis',
+                to: '/',
+            },
+            {
+                name: 'Europe',
+                to: '/',
+            },
+            {
+                name: 'Africa',
+                to: '/',
+            },
+            {
+                name: 'Oceania',
+                to: '/',
+            },
+            {
+                name: 'North America',
+                to: '/',
+            },
+            {
+                name: 'South America',
+                to: '/',
+            },
+            {
+                name: 'Comming soon ',
+                to: '/',
+                disabled: true,
+            },
+            {
+                name: 'Comming soon ',
+                to: '/',
+                disabled: true,
+            },
+        ];
+
         const titleClasses = cx('main-title', {
             active: isActive,
         });
@@ -87,23 +124,23 @@ class Index extends Component<Props, State> {
                         <div className={styles['content-wrap']} ref={this.contentRef}>
                             <span className={styles.wave} />
                             <div className={styles.content}>
-                                <article className={styles.service}>
-                                    <div className={styles['vertical-wrap']}>
-                                        <span>Asia</span>
-                                        <div className={styles['hover-content']}>
-                                            <h3>
-                                                <span>Look around</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </article>
-                                {[1, 2, 3].map((item, i) => (
-                                    <article className={styles.service} key={i}>
-                                        <div className={styles['vertical-wrap']}>
-                                            <span>Coming Soon</span>
-                                        </div>
-                                    </article>
-                                ))}
+                                {continentList.map((continent) => {
+                                    const inner = cx('vertical-wrap', {
+                                        disabled: continent.disabled,
+                                    });
+                                    return (
+                                        <article className={styles.service} key={continent.name}>
+                                            <div className={inner}>
+                                                <span>{continent.name}</span>
+                                                <div className={styles['hover-content']}>
+                                                    <h3>
+                                                        <span>Look around</span>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    );
+                                })}
                             </div>
                         </div>
                     </section>
