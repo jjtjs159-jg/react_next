@@ -3,6 +3,7 @@ import { Component, Fragment, createRef } from 'react';
 import DynamicHeader from 'components/headers/DynamicHeader';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import Image from 'next/image';
 import colors from 'constants/colors';
 import { Button, withStyles } from '@material-ui/core';
 import * as userActions from 'actions/User';
@@ -81,17 +82,17 @@ class Index extends Component<Props, State> {
                 <main className={styles.main}>
                     <section className={styles.section}>
                         <h2 className={titleClasses}>
-                            <span>Smart Health Care</span>
+                            <span>Travel the world</span>
                         </h2>
                         <div className={styles['content-wrap']} ref={this.contentRef}>
                             <span className={styles.wave} />
                             <div className={styles.content}>
                                 <article className={styles.service}>
                                     <div className={styles['vertical-wrap']}>
-                                        <span>Survey</span>
+                                        <span>Asia</span>
                                         <div className={styles['hover-content']}>
                                             <h3>
-                                                <span>Take the quiz</span>
+                                                <span>Look around</span>
                                             </h3>
                                         </div>
                                     </div>
