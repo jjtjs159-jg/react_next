@@ -100,16 +100,33 @@ class Index extends Component<Props, State> {
                             </div>
                         </div>
                     </section>
-                    <section>
+                    <section className={styles.section}>
                         <h2 className={styles['section-title']}>
                             <span>Enjoy Hygge Life</span>
                         </h2>
                         <div className={styles['content-wrap']}>
-                            <div className={styles.pattern}>Content</div>
+                            <div className={styles.pattern}>-- </div>
+                        </div>
+                    </section>
+                    <section className={styles.section}>
+                        <h2 className={styles['section-title']}>
+                            {/* <span>Stay up-to-date with our next projects</span> */}
+                            <span>Carefully crafted resources</span>
+                        </h2>
+                        <div className={styles['content-wrap']}>
+                            <div className={styles.cover}>
+                                <h1 className={styles.headline}>
+                                    <span>
+                                        Crush it together
+                                        {/* 버튼 1 버튼 2 */}
+                                    </span>
+                                </h1>
+                            </div>
                         </div>
                     </section>
                 </main>
                 <footer className={styles.footer}>
+                    <p className={styles.greeting}>Thanks for stopping by</p>
                     <p className={styles.copyright}>
                         <span>Copyright © 2020- Jakma(Park JongGwang). All right reserved.</span>
                     </p>

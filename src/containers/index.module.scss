@@ -27,7 +27,7 @@
 }
 
 .section {
-    margin-bottom: 2em;
+    margin-bottom: 5.4rem;
 }
 
 .section-title {
@@ -35,14 +35,14 @@
 
     & > span {
         font-weight: 300;
-        font-size: 2.4rem;
+        font-size: 1.8rem;
         margin-bottom: 1em;
         display: block;
     }
 }
 
 .pattern {
-    background-image: url('/empty_classroom.jpg');
+    background-image: url('/laptop.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
@@ -50,6 +50,15 @@
     max-width: 50%;
     margin: 0 auto;
 }
+
+// .mountain {
+//     background-image: url('/mountain.png');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: 100%;
+//     padding-bottom: 20%;
+//     margin: 0 auto;
+// }
 
 .wave {
     background-image: url('/wave.svg');
@@ -80,7 +89,7 @@
     // float: left;
     display: inline-block;
     margin-right: 30px;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     animation: fade-up 1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
     opacity: 0;
 
@@ -102,6 +111,26 @@
 
     &:nth-of-type(4) {
         animation-delay: 0.8s;
+    }
+}
+
+.cover {
+    background: $colorGreen2;
+    padding-bottom: 25%;
+    position: relative;
+    // margin: 0 -95px;
+
+    & > h1 {
+        color: $colorNavy;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+
+        & > span {
+            font-weight: 300;
+        }
     }
 }
 
@@ -193,6 +222,13 @@
     padding-top: 9em;
     position: relative;
     z-index: 3;
+
+    .greeting {
+        color: $colorGray;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.2em;
+    }
 
     .copyright {
         text-align: center;
