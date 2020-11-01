@@ -2,8 +2,8 @@
     "compilerOptions": {
         "rootDir": "src",
         "baseUrl": "src",
-        "noImplicitAny": true,
-        "noUnusedLocals": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": false,
         "allowUmdGlobalAccess": true,
         "target": "es6",
         "allowUnreachableCode": false,
