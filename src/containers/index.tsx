@@ -74,7 +74,7 @@ class Index extends Component<Props, State> {
 
         const continentList = [
             {
-                name: 'Asis',
+                name: 'Asia',
                 to: '/',
             },
             {
