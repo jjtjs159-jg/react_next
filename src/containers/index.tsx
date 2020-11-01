@@ -3,6 +3,8 @@ import { Component, Fragment, createRef } from 'react';
 import DynamicHeader from 'components/headers/DynamicHeader';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import colors from 'constants/colors';
+import { Button, withStyles } from '@material-ui/core';
 import * as userActions from 'actions/User';
 import classnames from 'classnames/bind';
 import styles from './index.module.scss';
@@ -14,6 +16,7 @@ const cx = classnames.bind(styles);
 // };
 
 interface Props {
+    classes: any;
     dispatch: Dispatch;
     [key: string]: any;
 }
@@ -35,7 +38,8 @@ class Index extends Component<Props, State> {
     }
 
     componentDidMount() {
-        this.props.dispatch(userActions.getUser());
+        // this.props.dispatch(userActions.getUser());
+        this.handleScroll();
         window.addEventListener('scroll', this.handleScroll);
     }
 
@@ -64,8 +68,10 @@ class Index extends Component<Props, State> {
     // };
 
     render() {
+        const { classes } = this.props;
         const { isActive } = this.state;
-        const classes = cx('main-title', {
+
+        const titleClasses = cx('main-title', {
             active: isActive,
         });
 
@@ -74,7 +80,7 @@ class Index extends Component<Props, State> {
                 <DynamicHeader stickyRef={this.contentRef} />
                 <main className={styles.main}>
                     <section className={styles.section}>
-                        <h2 className={classes}>
+                        <h2 className={titleClasses}>
                             <span>Smart Health Care</span>
                         </h2>
                         <div className={styles['content-wrap']} ref={this.contentRef}>
@@ -105,40 +111,95 @@ class Index extends Component<Props, State> {
                             <span>Enjoy Hygge Life</span>
                         </h2>
                         <div className={styles['content-wrap']}>
-                            <div className={styles.pattern}>-- </div>
+                            <div className={styles.pattern}>--</div>
                         </div>
                     </section>
                     <section className={styles.section}>
                         <h2 className={styles['section-title']}>
-                            {/* <span>Stay up-to-date with our next projects</span> */}
                             <span>Carefully crafted resources</span>
                         </h2>
                         <div className={styles['content-wrap']}>
-                            <div className={styles.cover}>
-                                <h1 className={styles.headline}>
-                                    <span>
-                                        Crush it together
-                                        {/* 버튼 1 버튼 2 */}
-                                    </span>
-                                </h1>
+                            <div className={styles['creator-list']}>
+                                <div className={styles.cell}>
+                                    <div className={styles.creator}>
+                                        <h4>Front Roid</h4>
+                                        <p>frontend developer</p>
+                                    </div>
+                                </div>
+                                {[1, 2, 3, 4, 5, 6, 7].map((cell, i) => (
+                                    <div className={styles.cell} key={i}>
+                                        <div className={styles.creator}>
+                                            <h4>any others</h4>
+                                            <p>job</p>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
+                        </div>
+                    </section>
+                    <section className={styles.section}>
+                        <h2 className={styles['section-title']}>
+                            <span>Stay up-to-date with our next projects</span>
+                        </h2>
+                        <div className={styles['content-wrap']}>
+                            <div className={styles.cover}>
+                                <div className={styles.inner}>
+                                    <h1>
+                                        <span>Crush it together</span>
+                                    </h1>
+                                    <p className={styles.paragraph}>
+                                        It is a life we create together. Waiting for good comments.
+                                    </p>
+                                    <Button
+                                        variant="contained"
+                                        size="large"
+                                        disableElevation
+                                        color="primary"
+                                        style={{
+                                            borderRadius: 50,
+                                            backgroundColor: colors.colorDarkGreen,
+                                        }}
+                                        // className={classes.button}
+                                    >
+                                        Contact Us
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className={styles.more}></div>
                         </div>
                     </section>
                 </main>
                 <footer className={styles.footer}>
                     <p className={styles.greeting}>Thanks for stopping by</p>
                     <p className={styles.copyright}>
-                        <span>Copyright © 2020- Jakma(Park JongGwang). All right reserved.</span>
+                        <span>
+                            Copyright © 2020- Front Roid(Park JongGwang). All right reserved.
+                        </span>
                     </p>
                 </footer>
             </Fragment>
         );
     }
 }
+
+// const materialStyles = {
+//     button: {
+//         borderRadius: 50,
+//         backgroundColor: colors.colorGreen,
+//         color: 'white',
+//         // borderColor: colors.colorNavy,
+//         '&:hover': {
+//             backgroundColor: colors.colorDarkGreen,
+//         },
+//     },
+// };
+
 const mapStateToProps = (state: any) => {
     return {
         user: state.user,
     };
 };
 
-export default connect(mapStateToProps)(Index);
+export default Index;
+// export default connect(mapStateToProps)(withStyles(materialStyles)(Index));
+// export default withStyles(materialStyles)(Index);
