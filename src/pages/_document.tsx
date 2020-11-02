@@ -15,6 +15,8 @@ class MyDocument extends Document {
             <Html lang="ko">
                 <Head>
                     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+                    <link rel="stylesheet" href="nprogress.css" />
+                    <script src="nprogress.js" />
                 </Head>
                 <body>
                     <Main />

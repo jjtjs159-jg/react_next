@@ -1,6 +1,7 @@
 import App, { AppProps } from 'next/app';
 import { Fragment } from 'react';
 import Wrapper from 'store/store';
+import NProgress from 'nprogress';
 import Head from 'next/head';
 import Router from 'next/router';
 import ga from 'analytics/ga';
@@ -14,6 +15,8 @@ import './_app.scss';
  * 추가적인 데이터를 페이지로 주입시키는 것이 가능하다.
  * 글로벌 CSS를 선언한다.
  */
+NProgress.configure({ showSpinner: false });
+
 class Home extends App<AppProps, any> {
     componentDidMount() {
         if (!window.ga) {
@@ -30,7 +33,7 @@ class Home extends App<AppProps, any> {
     }
 
     handleRouteChangeStart = () => {
-        console.log('start');
+        NProgress.start();
     };
 
     handleRouteChangeError = () => {
@@ -38,9 +41,10 @@ class Home extends App<AppProps, any> {
     };
 
     handleRouteChangeComplete = () => {
+        NProgress.done();
         ga.logPageView();
-        console.log('complete');
     };
+
     render() {
         const { Component, pageProps } = this.props;
 
