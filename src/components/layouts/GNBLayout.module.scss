@@ -1,0 +1,67 @@
+@import "constants/colors";
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.main {
+    padding-top: 325px;
+    min-height: 90vh;
+}
+
+.main-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 250px;
+    background-image: url('/favicon.png');
+    background-repeat: no-repeat;
+    background-position: center -150px;
+    text-align: center;
+    z-index: -1;
+
+    & > span {
+        font-weight: 300;
+        font-size: 3rem;
+    }
+
+    &.active {
+        display: none;
+    }
+}
+
+.content-wrap {
+    position: relative;
+    z-index: 10;
+}
+
+.inner {
+    background: $colorSky;
+}
+
+.wave {
+    background-image: url('/wave.svg');
+    background-repeat: repeat;
+    background-position: center;
+    display: block;
+    height: 44px;
+}
+
+.footer {
+    // padding-top: 9em;
+    position: relative;
+    z-index: 3;
+
+    .greeting {
+        color: $colorGray;
+        text-align: center;
+        font-weight: 500;
+        font-size: 1.2em;
+    }
+
+    .copyright {
+        text-align: center;
+        margin-top: 0;
+    }
+}
