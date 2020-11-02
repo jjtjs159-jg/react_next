@@ -57,12 +57,12 @@ class Index extends Component<Props, State> {
                 to: '/',
             },
             {
-                name: 'Comming soon ',
+                name: 'Comming soon 1',
                 to: '/',
                 disabled: true,
             },
             {
-                name: 'Comming soon ',
+                name: 'Comming soon 2',
                 to: '/',
                 disabled: true,
             },
@@ -187,24 +187,10 @@ class Index extends Component<Props, State> {
     }
 }
 
-// const materialStyles = {
-//     button: {
-//         borderRadius: 50,
-//         backgroundColor: colors.colorGreen,
-//         color: 'white',
-//         // borderColor: colors.colorNavy,
-//         '&:hover': {
-//             backgroundColor: colors.colorDarkGreen,
-//         },
-//     },
-// };
-
 const mapStateToProps = (state: any) => {
     return {
         user: state.user,
     };
 };
 
-export default Index;
-// export default connect(mapStateToProps)(withStyles(materialStyles)(Index));
-// export default withStyles(materialStyles)(Index);
+export default connect(mapStateToProps)(Index);
