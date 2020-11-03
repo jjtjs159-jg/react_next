@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { GNBLayout } from 'components/layouts';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import colors from 'constants/colors';
@@ -56,7 +56,7 @@ const RNButton = withStyles({
 interface Props {}
 
 const Index: FunctionComponent<Props> = ({}) => {
-    const { handleSubmit, register } = useForm();
+    const { handleSubmit, register, control } = useForm();
 
     const handleFormSubmit = (data: any) => {
         console.log(data);
@@ -71,39 +71,58 @@ const Index: FunctionComponent<Props> = ({}) => {
                         <h2>
                             <span>Contact Us</span>
                         </h2>
-                        <form className={styles.form}>
-                            <fieldset>
-                                <p>
-                                    <RNTextField
+                        {/* <RNTextField
                                         label="Your Name*"
                                         variant="outlined"
-                                        ref={register}
+                                        inputRef={register}
+                                        fullWidth
+                                    /> */}
+                        <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
+                            <fieldset>
+                                <div className={styles.field}>
+                                    {/* <Controller
+                                        as={RNTextField}
+                                        name="name"
+                                        control={control}
+                                        defaultValue=""
+                                        label="Your Name*"
+                                        variant="outlined"
+                                        inputRef={register}
+                                        fullWidth
+                                    /> */}
+                                    <RNTextField
+                                        label="Your Name*"
+                                        name="name"
+                                        variant="outlined"
+                                        inputRef={register}
                                         fullWidth
                                     />
-                                </p>
-                                <p>
+                                </div>
+                                <div className={styles.field}>
                                     <RNTextField
                                         label="Your Email*"
+                                        name="email"
                                         variant="outlined"
-                                        ref={register}
+                                        inputRef={register}
                                         fullWidth
                                     />
-                                </p>
-                                <p>
+                                </div>
+                                <div className={styles.field}>
                                     <RNTextArea
                                         variant="outlined"
+                                        name="text"
                                         rows={5}
-                                        ref={register}
+                                        inputRef={register}
                                         multiline
                                         fullWidth
                                     />
-                                </p>
+                                </div>
                             </fieldset>
-                            <p className={styles.submit}>
-                                <RNButton variant="contained" disableElevation>
+                            <div className={styles.submit}>
+                                <RNButton type="submit" variant="contained" disableElevation>
                                     Send
                                 </RNButton>
-                            </p>
+                            </div>
                         </form>
                     </div>
                 </article>
