@@ -57,12 +57,12 @@ class Index extends Component<Props, State> {
                 to: '/',
             },
             {
-                name: 'Comming soon 1',
+                name: 'Comming soon',
                 to: '/',
                 disabled: true,
             },
             {
-                name: 'Comming soon 2',
+                name: 'Comming soon',
                 to: '/',
                 disabled: true,
             },
@@ -73,12 +73,15 @@ class Index extends Component<Props, State> {
                 <section className={styles.section}>
                     <div className={styles['content-wrap']} ref={this.contentRef}>
                         <div className={styles.content}>
-                            {continentList.map((continent) => {
+                            {continentList.map((continent, i) => {
                                 const inner = cx('vertical-wrap', {
                                     disabled: continent.disabled,
                                 });
                                 return (
-                                    <article className={styles.service} key={continent.name}>
+                                    <article
+                                        className={styles.service}
+                                        key={`${continent.name}-${i}`}
+                                    >
                                         <div className={inner}>
                                             <span>{continent.name}</span>
                                             <div className={styles['hover-content']}>

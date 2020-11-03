@@ -1,7 +1,7 @@
-import { FunctionComponent, Fragment } from 'react';
+import { FunctionComponent } from 'react';
 import { GNBLayout } from 'components/layouts';
 import { useForm } from 'react-hook-form';
-import { TextField, Button, TextareaAutosize } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import colors from 'constants/colors';
 import classnames from 'classnames/bind';
@@ -21,7 +21,6 @@ const RNTextField = withStyles({
             borderColor: colors.colorDarkGreen,
             color: colors.colorDarkGreen,
             borderLeftWidth: 6,
-            // padding: '4px !important',
         },
         '& label.Mui-focused': {
             borderColor: colors.colorDarkGreen,
@@ -35,13 +34,9 @@ const RNTextArea = withStyles({
         '& textarea:valid + fieldset': {
             borderColor: 'green',
         },
-        // '& textarea:invalid + fieldset': {
-        //     borderColor: 'red',
-        // },
         '& textarea:valid:focus + fieldset': {
             borderColor: colors.colorDarkGreen,
             color: colors.colorDarkGreen,
-            // padding: '4px !important',
         },
     },
 })(TextField);
@@ -49,10 +44,11 @@ const RNTextArea = withStyles({
 const RNButton = withStyles({
     root: {
         backgroundColor: colors.colorDarkGreen,
+        padding: '10px 20px',
+        minWidth: '96px',
         color: '#fff',
         '&:hover': {
             backgroundColor: colors.colorDarkGreenHover,
-            // boxShadow: 'none',
         },
     },
 })(Button);
@@ -68,60 +64,50 @@ const Index: FunctionComponent<Props> = ({}) => {
 
     return (
         <GNBLayout title="Contact Us">
-            <div style={{ height: '1500px' }}>
-                {/* <form onSubmit={handleSubmit(handleFormSubmit)}>
-                    <input name="writer" ref={register} />
-                    <button type="submit">제출</button>
-                </form> */}
-                <section className={styles.section}>
-                    <article className={styles.where} />
-                    <article className={styles.contact}>
-                        <div>
-                            <h2>
-                                <span>Contact Us</span>
-                            </h2>
-                            <form className={styles.form}>
-                                <fieldset>
-                                    <p>
-                                        <RNTextField
-                                            // id="validation-outlined-input"
-                                            label="Your Name*"
-                                            variant="outlined"
-                                            ref={register}
-                                            // required
-                                            fullWidth
-                                        />
-                                    </p>
-                                    <p>
-                                        <RNTextField
-                                            // id="validation-outlined-input"
-                                            label="Your Email*"
-                                            variant="outlined"
-                                            ref={register}
-                                            // required
-                                            fullWidth
-                                        />
-                                    </p>
-                                    <p>
-                                        <RNTextArea
-                                            // id="validation-outlined-input"
-                                            variant="outlined"
-                                            rows={5}
-                                            ref={register}
-                                            // required
-                                            multiline
-                                            fullWidth
-                                        />
-                                    </p>
-                                </fieldset>
+            <section className={styles.section}>
+                <article className={styles.where} />
+                <article className={styles.contact}>
+                    <div>
+                        <h2>
+                            <span>Contact Us</span>
+                        </h2>
+                        <form className={styles.form}>
+                            <fieldset>
+                                <p>
+                                    <RNTextField
+                                        label="Your Name*"
+                                        variant="outlined"
+                                        ref={register}
+                                        fullWidth
+                                    />
+                                </p>
+                                <p>
+                                    <RNTextField
+                                        label="Your Email*"
+                                        variant="outlined"
+                                        ref={register}
+                                        fullWidth
+                                    />
+                                </p>
+                                <p>
+                                    <RNTextArea
+                                        variant="outlined"
+                                        rows={5}
+                                        ref={register}
+                                        multiline
+                                        fullWidth
+                                    />
+                                </p>
+                            </fieldset>
+                            <p className={styles.submit}>
                                 <RNButton variant="contained" disableElevation>
                                     Send
                                 </RNButton>
-                            </form>
-                        </div>
-                    </article>
-                </section>
-            </div>
+                            </p>
+                        </form>
+                    </div>
+                </article>
+            </section>
         </GNBLayout>
     );
 };
