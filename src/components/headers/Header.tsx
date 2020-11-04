@@ -57,10 +57,10 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
                 <nav className={styles.nav}>
                     <ul>
                         <li>
-                            <Link href="/">work</Link>
+                            <Link href="/work">work</Link>
                         </li>
                         <li>
-                            <Link href="/">about</Link>
+                            <Link href="/about">about</Link>
                         </li>
                         <li>
                             <Link href="/contact">contact</Link>
