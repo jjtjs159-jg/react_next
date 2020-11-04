@@ -1,0 +1,73 @@
+@import "constants/colors";
+
+.section {
+    margin-bottom: 5.4rem;
+}
+
+.section-title {
+    text-align: center;
+
+    & > span {
+        font-weight: 300;
+        font-size: 1.8rem;
+        margin-bottom: 1em;
+        display: block;
+    }
+}
+
+.content-wrap {
+    position: relative;
+    z-index: 10;
+}
+
+.content {
+    background: $colorSky;
+    height: 100%;
+}
+
+.about {
+    // background-image: url('/travel.jpg');
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    // min-height: 800px;
+    margin-bottom: 2em;
+}
+
+.about-inner {
+    text-align: center;
+
+    & > p {
+        font-weight: 300;
+        font-size: 1.2rem;
+    }
+}
+
+.stack {
+    margin-bottom: 2em;
+
+    & > p {
+        color: $colorDarkGreenHover;
+        font-weight: 600;
+    }
+
+    & > ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        padding-left: 15px;
+
+        & > p {
+            font-weight: 500;
+            // color: $colorDarkGreen;
+        }
+
+        & > li {
+            width: 25%;
+            padding: 5px 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
