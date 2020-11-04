@@ -12,7 +12,7 @@ const cx = classnames.bind(styles);
 const RNTextField = withStyles({
     root: {
         '& input:valid + fieldset': {
-            borderColor: 'green',
+            borderColor: colors.colorDarkGreen,
         },
         '& input:invalid + fieldset': {
             borderColor: 'red',
@@ -32,7 +32,7 @@ const RNTextField = withStyles({
 const RNTextArea = withStyles({
     root: {
         '& textarea:valid + fieldset': {
-            borderColor: 'green',
+            borderColor: colors.colorDarkGreen,
         },
         '& textarea:valid:focus + fieldset': {
             borderColor: colors.colorDarkGreen,
