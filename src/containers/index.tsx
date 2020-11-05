@@ -69,7 +69,7 @@ class Index extends Component<Props, State> {
         ];
 
         return (
-            <GNBLayout title="Travle the world">
+            <GNBLayout title="Travel the world">
                 <section className={styles.section}>
                     <div className={styles['content-wrap']} ref={this.contentRef}>
                         <div className={styles.content}>

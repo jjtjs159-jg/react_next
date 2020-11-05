@@ -71,25 +71,9 @@ const Index: FunctionComponent<Props> = ({}) => {
                         <h2>
                             <span>Contact Us</span>
                         </h2>
-                        {/* <RNTextField
-                                        label="Your Name*"
-                                        variant="outlined"
-                                        inputRef={register}
-                                        fullWidth
-                                    /> */}
                         <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
                             <fieldset>
                                 <div className={styles.field}>
-                                    {/* <Controller
-                                        as={RNTextField}
-                                        name="name"
-                                        control={control}
-                                        defaultValue=""
-                                        label="Your Name*"
-                                        variant="outlined"
-                                        inputRef={register}
-                                        fullWidth
-                                    /> */}
                                     <RNTextField
                                         label="Your Name*"
                                         name="name"
