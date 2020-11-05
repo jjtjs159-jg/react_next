@@ -41,8 +41,7 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-empty-function": "off",
         "react/prop-types": 0,
-        "react/react-in-jsx-scope": "off",
-        "react/no-unescaped-entities": ["'"]
+        "react/react-in-jsx-scope": "off"
     },
     "settings": {
         "react": {
