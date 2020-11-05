@@ -16,13 +16,9 @@
 }
 
 .pattern {
-    background-image: url('/laptop.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    padding-bottom: 20%;
     max-width: 50%;
     margin: 0 auto;
+    display: block;
 }
 
 .content-wrap {
@@ -87,12 +83,9 @@
 }
 
 .cover {
-    // background: $colorGreen2;
-    // background: darken($colorSky3, 25%);
     background: $colorSky3;
     padding-bottom: 25%;
     position: relative;
-    // margin: 0 -95px;
 
     .inner {
         position: absolute;

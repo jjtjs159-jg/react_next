@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import { GNBLayout } from 'components/layouts';
 import { Button } from '@material-ui/core';
 import colors from 'constants/colors';
-import * as userActions from 'actions/User';
+// import * as userActions from 'actions/User';
 import classnames from 'classnames/bind';
 import styles from './index.module.scss';
 
@@ -101,7 +101,12 @@ class Index extends Component<Props, State> {
                         <span>Enjoy Hygge Life</span>
                     </h2>
                     <div className={styles['content-wrap']}>
-                        <div className={styles.pattern}>--</div>
+                        <img
+                            className={styles.pattern}
+                            src="/laptop.png"
+                            data-src="/laptop.png"
+                            alt="laptop logo"
+                        />
                     </div>
                 </section>
                 <section className={styles.section}>

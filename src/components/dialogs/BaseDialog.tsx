@@ -6,13 +6,14 @@ import styles from './BaseDialog.module.scss';
 const cx = classnames.bind(styles);
 
 interface Props {
+    title?: string;
     onClose: () => void;
 }
 
 const focusableElementsString =
     'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
+const BaseDialog: FunctionComponent<Props> = ({ title, onClose, children }) => {
     const portalElement = document.getElementById('portal');
     const portalRef = useRef(portalElement);
     const dialogRef = useRef(null);
@@ -82,9 +83,14 @@ const BaseDialog: FunctionComponent<Props> = ({ onClose, children }) => {
         <BasePortal container={portalRef}>
             <div className={cx('wrapper')} ref={dialogRef}>
                 <div className={cx('dialog')} tabIndex={0}>
+                    {title && (
+                        <div className={styles.title}>
+                            <h3>{title}</h3>
+                        </div>
+                    )}
                     {children}
                 </div>
-                <div className={cx('overlay')} />
+                <div className={cx('overlay')} onClick={onClose} aria-hidden="true" />
             </div>
         </BasePortal>
     );

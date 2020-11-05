@@ -1,3 +1,5 @@
+@import "helpers/responsive";
+
 .dialog {
     position: absolute;
     top: 50%;
@@ -8,6 +10,10 @@
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14), 0 1px 14px 0 rgba(0, 0, 0, 0.1);
     border: 1px solid black;
     width: 400px;
+
+    @include media(">lg") {
+        width: 550px;
+    }
 }
 
 .wrapper {
@@ -17,6 +23,16 @@
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+.title {
+    margin: 0;
+
+    & > h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.6em;
+        font-weight: 500;
+    }
 }
 
 .overlay {

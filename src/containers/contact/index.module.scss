@@ -16,15 +16,11 @@
 }
 
 .where {
-    background-image: url('/travel_landscape.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    object-fit: cover;
     min-height: 800px;
 }
 
 .contact {
-    // max-width: 50%;
     max-width: 75%;
     margin: 0 auto;
     position: relative;
@@ -76,4 +72,8 @@
             text-align: right;
         }
     }
+}
+
+.dialog-button {
+    text-align: right;
 }

@@ -1,13 +1,11 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { GNBLayout } from 'components/layouts';
+import { BaseDialog } from 'components/dialogs';
 import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import colors from 'constants/colors';
-import classnames from 'classnames/bind';
 import styles from './index.module.scss';
-
-const cx = classnames.bind(styles);
 
 const RNTextField = withStyles({
     root: {
@@ -53,19 +51,48 @@ const RNButton = withStyles({
     },
 })(Button);
 
-interface Props {}
-
-const Index: FunctionComponent<Props> = ({}) => {
-    const { handleSubmit, register, control } = useForm();
+const Index: FunctionComponent = () => {
+    const { handleSubmit, register } = useForm();
+    const [showsDialog, setShowsDialog] = useState(false);
 
     const handleFormSubmit = (data: any) => {
         console.log(data);
+        setShowsDialog(true);
     };
+
+    const handleClose = () => {
+        setShowsDialog(!showsDialog);
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (showsDialog) {
+                if (e.key === 'Enter') {
+                    handleClose();
+                }
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showsDialog]);
 
     return (
         <GNBLayout title="Contact Us">
             <section className={styles.section}>
-                <article className={styles.where} />
+                <article>
+                    <picture>
+                        <img
+                            src="/travel_landscape.jpg"
+                            data-src="/travel_landscape.jpg"
+                            alt="landscape"
+                            className={styles.where}
+                        />
+                    </picture>
+                </article>
                 <article className={styles.contact}>
                     <div>
                         <h2>
@@ -111,6 +138,16 @@ const Index: FunctionComponent<Props> = ({}) => {
                     </div>
                 </article>
             </section>
+            {showsDialog && (
+                <BaseDialog title="COMING SOON" onClose={handleClose}>
+                    preparing the service
+                    <div className={styles['dialog-button']}>
+                        <RNButton type="button" onClick={handleClose}>
+                            close
+                        </RNButton>
+                    </div>
+                </BaseDialog>
+            )}
         </GNBLayout>
     );
 };
