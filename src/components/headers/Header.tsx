@@ -6,7 +6,7 @@ import styles from './Header.module.scss';
 const cx = classnames.bind(styles);
 
 interface Props {
-    stickyRef: MutableRefObject<HTMLDivElement>;
+    stickyRef?: MutableRefObject<HTMLDivElement>;
 }
 
 const Header: FunctionComponent<Props> = ({ stickyRef }) => {

@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { GNBLayout } from 'components/layouts';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import colors from 'constants/colors';
