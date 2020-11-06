@@ -6,8 +6,16 @@
 }
 
 .main {
-    padding-top: 385px;
+    padding-top: 300px;
     min-height: 90vh;
+
+    @include media(">xs") {
+        padding-top: 345px;
+    }
+
+    @include media(">sm") {
+        padding-top: 375px;
+    }
 
     @include media(">md") {
         padding-top: 325px;
@@ -19,22 +27,39 @@
     top: 60px;
     left: 0;
     right: 0;
-    padding-top: 250px;
     background-image: url('/favicon.png');
     background-repeat: no-repeat;
-    background-position: center -150px;
-    // background-size: 120%;
+    background-position: center -100px;
+    background-size: 450px;
+    padding-top: 185px;
     text-align: center;
     z-index: -1;
+    transition: background-size 0.25s, padding-top 0.25s;
+
+    @include media(">xs") {
+        padding-top: 220px;
+        background-position: center -100px;
+        background-size: 500px;
+    }
+
+    @include media(">sm") {
+        padding-top: 250px;
+        background-size: 550px;
+    }
 
     @include media(">md") {
-        // background-size: auto;
+        background-position: center -150px;
+        background-size: auto;
         top: 0;
     }
 
     & > span {
         font-weight: 300;
-        font-size: 3rem;
+        font-size: 36px;
+
+        @include media(">xs") {
+            font-size: 3rem;
+        }
     }
 
     &.active {

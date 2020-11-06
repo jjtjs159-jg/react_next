@@ -1,4 +1,5 @@
 @import "constants/colors";
+@import "helpers/responsive";
 
 .section {
     margin-bottom: 5.4rem;
@@ -34,13 +35,37 @@
 @mixin getServiceSpec($i) {
     &:nth-of-type(#{$i}) {
         animation-delay: 0.2s * $i;
+        margin-bottom: 30px;
 
-        @if $i <= 4 {
-            margin-bottom: 30px;
+        // @include media(">md") {
+        //     @if $i <= 4 {
+        //         margin-bottom: 30px;
+        //     }
+        // }
+
+        @include media("<=xs") {
+            margin-right: 0;
         }
 
-        @if $i % 4 == 0 {
-            margin-right: 0;
+        @include media(">xs") {
+            margin-right: 30px;
+            @if $i % 2 == 0 {
+                margin-right: 0;
+            }
+        }
+
+        @include media(">sm") {
+            margin-right: 30px;
+            @if $i % 3 == 0 {
+                margin-right: 0;
+            }
+        }
+
+        @include media(">md") {
+            margin-right: 30px;
+            @if $i % 4 == 0 {
+                margin-right: 0;
+            }
         }
     }
 }
@@ -48,15 +73,30 @@
 .service {
     position: relative;
     background-color: $colorSky3;
-    width: calc(25% - 90px / 4);
     height: 250px;
     display: inline-block;
-    margin-right: 30px;
+    // margin-right: 30px;
     animation: fade-up 1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
     opacity: 0;
 
     @for $i from 1 through 8 {
         @include getServiceSpec($i);
+    }
+
+    @include media("<=xs") {
+        width: 100%;
+    }
+
+    @include media(">xs") {
+        width: calc(100% / 2 - 30px / 2);
+    }
+
+    @include media(">sm") {
+        width: calc(100% / 3 - 60px / 3);
+    }
+
+    @include media(">md") {
+        width: calc(100% / 4 - 90px / 4);
     }
 }
 
