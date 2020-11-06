@@ -1,5 +1,6 @@
 import { FunctionComponent, useRef } from 'react';
 import { Header } from 'components/headers';
+import DynamicHeader from 'components/headers/DynamicHeader';
 import { GNBFooter } from 'components/footer';
 import styles from './GNBLayout.module.scss';
 
@@ -12,7 +13,7 @@ const GNBLayout: FunctionComponent<Props> = ({ title, children }) => {
 
     return (
         <div className={styles.wrapper}>
-            <Header stickyRef={contentRef} />
+            <DynamicHeader stickyRef={contentRef} />
             <main className={styles.main}>
                 <section>
                     <h2 className={styles['main-title']}>
