@@ -73,7 +73,8 @@
 .service {
     position: relative;
     background-color: $colorSky3;
-    height: 250px;
+    // height: 250px;
+    padding-bottom: 75%;
     display: inline-block;
     // margin-right: 30px;
     animation: fade-up 1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
@@ -89,14 +90,22 @@
 
     @include media(">xs") {
         width: calc(100% / 2 - 30px / 2);
+        padding-bottom: 50%;
     }
 
     @include media(">sm") {
         width: calc(100% / 3 - 60px / 3);
+        padding-bottom: 30%;
     }
 
     @include media(">md") {
         width: calc(100% / 4 - 90px / 4);
+        padding-bottom: 25%;
+    }
+
+    @include media(">lg") {
+        height: 250px;
+        padding-bottom: 0;
     }
 }
 
