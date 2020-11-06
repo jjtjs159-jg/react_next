@@ -31,6 +31,20 @@
     height: 100%;
 }
 
+@mixin getServiceSpec($i) {
+    &:nth-of-type(#{$i}) {
+        animation-delay: 0.2s * $i;
+
+        @if $i <= 4 {
+            margin-bottom: 30px;
+        }
+
+        @if $i % 4 == 0 {
+            margin-right: 0;
+        }
+    }
+}
+
 .service {
     position: relative;
     background-color: $colorSky3;
@@ -41,44 +55,8 @@
     animation: fade-up 1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
     opacity: 0;
 
-    &:nth-of-type(4n) {
-        margin-right: 0;
-    }
-
-    &:nth-of-type(1) {
-        animation-delay: 0.2s;
-        margin-bottom: 30px;
-    }
-
-    &:nth-of-type(2) {
-        animation-delay: 0.4s;
-        margin-bottom: 30px;
-    }
-
-    &:nth-of-type(3) {
-        animation-delay: 0.6s;
-        margin-bottom: 30px;
-    }
-
-    &:nth-of-type(4) {
-        animation-delay: 0.8s;
-        margin-bottom: 30px;
-    }
-
-    &:nth-of-type(5) {
-        animation-delay: 1s;
-    }
-
-    &:nth-of-type(6) {
-        animation-delay: 1.2s;
-    }
-
-    &:nth-of-type(7) {
-        animation-delay: 1.4s;
-    }
-
-    &:nth-of-type(8) {
-        animation-delay: 1.6s;
+    @for $i from 1 through 8 {
+        @include getServiceSpec($i);
     }
 }
 
