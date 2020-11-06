@@ -1,25 +1,36 @@
 @import "constants/colors";
+@import "helpers/responsive";
 
 .wrapper {
     min-height: 100vh;
 }
 
 .main {
-    padding-top: 325px;
+    padding-top: 385px;
     min-height: 90vh;
+
+    @include media(">md") {
+        padding-top: 325px;
+    }
 }
 
 .main-title {
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
     right: 0;
     padding-top: 250px;
     background-image: url('/favicon.png');
     background-repeat: no-repeat;
     background-position: center -150px;
+    // background-size: 120%;
     text-align: center;
     z-index: -1;
+
+    @include media(">md") {
+        // background-size: auto;
+        top: 0;
+    }
 
     & > span {
         font-weight: 300;

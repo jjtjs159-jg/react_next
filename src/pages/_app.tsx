@@ -37,7 +37,7 @@ class Home extends App<AppProps, any> {
     };
 
     handleRouteChangeError = () => {
-        console.log('error');
+        // console.log('error');
     };
 
     handleRouteChangeComplete = () => {

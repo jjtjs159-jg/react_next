@@ -1,4 +1,6 @@
 import { FunctionComponent, useEffect, useState, MutableRefObject } from 'react';
+import { IconButton } from '@material-ui/core';
+import { Menu } from '@material-ui/icons';
 import Link from 'next/link';
 import classnames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -67,6 +69,11 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
                         </li>
                     </ul>
                 </nav>
+                <span className={styles.menu}>
+                    <IconButton aria-label="open_menu">
+                        <Menu />
+                    </IconButton>
+                </span>
             </div>
         </header>
     );

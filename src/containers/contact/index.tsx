@@ -56,7 +56,6 @@ const Index: FunctionComponent = () => {
     const [showsDialog, setShowsDialog] = useState(false);
 
     const handleFormSubmit = (data: any) => {
-        console.log(data);
         setShowsDialog(true);
     };
 
