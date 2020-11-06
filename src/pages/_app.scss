@@ -37,6 +37,8 @@ img {
 body {
     margin: 0;
     background-color: $colorSky;
+    min-width: 320px;
+    overflow-x: hidden;
 }
 
 #__next {
