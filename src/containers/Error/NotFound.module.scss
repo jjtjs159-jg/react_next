@@ -1,0 +1,29 @@
+@import "constants/colors";
+
+.wrap {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & > div {
+        margin-bottom: 1.8em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.title {
+    & > h1 {
+        font-size: 3rem;
+    }
+}
+
+.button {
+    & > a:nth-child(1) {
+        margin-right: 15px;
+    }
+}
