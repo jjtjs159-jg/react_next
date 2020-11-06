@@ -1,6 +1,6 @@
-import { FunctionComponent, useEffect, useState, MutableRefObject } from 'react';
+import { FunctionComponent, useEffect, useState, MutableRefObject, Fragment } from 'react';
 import { IconButton } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
+import { Menu, Close } from '@material-ui/icons';
 import Link from 'next/link';
 import classnames from 'classnames/bind';
 import styles from './Header.module.scss';
@@ -13,6 +13,7 @@ interface Props {
 
 const Header: FunctionComponent<Props> = ({ stickyRef }) => {
     const [isActive, setActive] = useState(false);
+    const [isOpen, setOpen] = useState(false);
 
     useEffect(() => {
         if (stickyRef && stickyRef.current) {
@@ -48,15 +49,49 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
         active: isActive,
     });
 
+    const menuItem = cx('menu-item', {
+        open: isOpen,
+    });
+
+    const handleMenu = () => {
+        setOpen(!isOpen);
+    };
+
     return (
-        <header className={wrapper}>
-            <div className={inner}>
-                <div className={styles.logo}>
-                    <h1>
-                        <Link href="/">hyglife</Link>
-                    </h1>
+        <Fragment>
+            <header className={wrapper}>
+                <div className={inner}>
+                    <div className={styles.logo}>
+                        <h1>
+                            <Link href="/">hyglife</Link>
+                        </h1>
+                    </div>
+                    <nav className={styles.nav}>
+                        <ul>
+                            <li>
+                                <Link href="/work">work</Link>
+                            </li>
+                            <li>
+                                <Link href="/about">about</Link>
+                            </li>
+                            <li>
+                                <Link href="/contact">contact</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    <span className={styles.menu}>
+                        {isOpen ? (
+                            <IconButton onClick={handleMenu} aria-label="close_menu">
+                                <Close />
+                            </IconButton>
+                        ) : (
+                            <IconButton onClick={handleMenu} aria-label="open_menu">
+                                <Menu />
+                            </IconButton>
+                        )}
+                    </span>
                 </div>
-                <nav className={styles.nav}>
+                <nav className={menuItem}>
                     <ul>
                         <li>
                             <Link href="/work">work</Link>
@@ -69,13 +104,8 @@ const Header: FunctionComponent<Props> = ({ stickyRef }) => {
                         </li>
                     </ul>
                 </nav>
-                <span className={styles.menu}>
-                    <IconButton aria-label="open_menu">
-                        <Menu />
-                    </IconButton>
-                </span>
-            </div>
-        </header>
+            </header>
+        </Fragment>
     );
 };
 
