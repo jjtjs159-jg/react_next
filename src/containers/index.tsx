@@ -72,25 +72,23 @@ class Index extends Component<Props, State> {
         return (
             <GNBLayout title="Travel the world">
                 <Section innerRef={this.contentRef}>
-                    <div className={styles.content}>
-                        {continentList.map((continent, i) => {
-                            const inner = cx('vertical-wrap', {
-                                disabled: continent.disabled,
-                            });
-                            return (
-                                <article className={styles.service} key={`${continent.name}-${i}`}>
-                                    <div className={inner}>
-                                        <span>{continent.name}</span>
-                                        <div className={styles['hover-content']}>
-                                            <h3>
-                                                <span>Look around</span>
-                                            </h3>
-                                        </div>
+                    {continentList.map((continent, i) => {
+                        const inner = cx('vertical-wrap', {
+                            disabled: continent.disabled,
+                        });
+                        return (
+                            <article className={styles.service} key={`${continent.name}-${i}`}>
+                                <div className={inner}>
+                                    <span>{continent.name}</span>
+                                    <div className={styles['hover-content']}>
+                                        <h3>
+                                            <span>Look around</span>
+                                        </h3>
                                     </div>
-                                </article>
-                            );
-                        })}
-                    </div>
+                                </div>
+                            </article>
+                        );
+                    })}
                 </Section>
                 <Section title="Enjoy Hygge Life">
                     <img
