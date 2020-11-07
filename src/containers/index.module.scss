@@ -1,20 +1,28 @@
 @import "constants/colors";
 @import "helpers/responsive";
 
-.section {
-    margin-bottom: 5.4rem;
-}
+// .section {
+//     margin-bottom: 1.8rem;
 
-.section-title {
-    text-align: center;
+//     @include media(">sm") {
+//         margin-bottom: 3.6rem;
+//     }
 
-    & > span {
-        font-weight: 300;
-        font-size: 1.8rem;
-        margin-bottom: 1em;
-        display: block;
-    }
-}
+//     @include media(">md") {
+//         margin-bottom: 5.4rem;
+//     }
+// }
+
+// .section-title {
+//     text-align: center;
+
+//     & > span {
+//         font-weight: 300;
+//         font-size: 1.8rem;
+//         margin-bottom: 1em;
+//         display: block;
+//     }
+// }
 
 .pattern {
     max-width: 50%;
@@ -22,10 +30,10 @@
     display: block;
 }
 
-.content-wrap {
-    position: relative;
-    z-index: 10;
-}
+// .content-wrap {
+//     position: relative;
+//     z-index: 10;
+// }
 
 .content {
     background: $colorSky;
