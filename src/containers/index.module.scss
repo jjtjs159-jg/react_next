@@ -1,26 +1,12 @@
 @import "constants/colors";
 @import "helpers/responsive";
-
-.pattern {
-    max-width: 50%;
-    margin: 0 auto;
-    display: block;
-}
+@import "helpers/mixins";
 
 @mixin getServiceSpec($i) {
     &:nth-of-type(#{$i}) {
         animation-delay: 0.2s * $i;
+        margin-right: 0;
         margin-bottom: 30px;
-
-        // @include media(">md") {
-        //     @if $i <= 4 {
-        //         margin-bottom: 30px;
-        //     }
-        // }
-
-        @include media("<=xs") {
-            margin-right: 0;
-        }
 
         @include media(">xs") {
             margin-right: 30px;
@@ -45,15 +31,30 @@
     }
 }
 
+.pattern {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+
+    @include media(">sm") {
+        max-width: 75%;
+    }
+
+    @include media(">md") {
+        max-width: 60%;
+    }
+
+    @include media(">lg") {
+        max-width: 50%;
+    }
+}
+
 .service {
+    @include fadeUp();
     position: relative;
-    background-color: $colorSky3;
-    // height: 250px;
-    padding-bottom: 75%;
     display: inline-block;
-    // margin-right: 30px;
-    animation: fade-up 1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
-    opacity: 0;
+    background-color: $colorSky3;
+    padding-bottom: 75%;
 
     @for $i from 1 through 8 {
         @include getServiceSpec($i);
@@ -166,9 +167,7 @@
             align-items: center;
 
             & > h3 {
-                animation: title-up 0.35s cubic-bezier(0.2, 0.3, 0.25, 0.9) 1.2s normal forwards 1;
-                animation-delay: 0.1s;
-                opacity: 0;
+                @include fadeDown(0.25);
                 font-size: 1.8rem;
 
                 & > span {
@@ -180,21 +179,52 @@
 }
 
 .creator-list {
-    max-width: 75%;
+    width: 100%;
     margin: 0 auto;
+    display: block;
+
+    @include media(">sm") {
+        max-width: 600px;
+    }
+
+    @include media(">md") {
+        max-width: 960px;
+    }
+
+    @include media(">lg") {
+        max-width: 80%;
+    }
 
     .cell {
-        width: 25%;
+        width: 100%;
         display: inline-block;
+        vertical-align: top;
+
+        @include media(">sm") {
+            width: 50%;
+        }
+
+        @include media(">md") {
+            width: calc(100% / 3);
+        }
+
+        @include media(">lg") {
+            width: 25%;
+        }
     }
 
     .creator {
+        @include parallelogram();
         background: $colorTintGreen2;
-        padding: 30px 20px;
         margin: 0 10px 20px 10px;
         border-radius: 12px;
         text-align: center;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+        padding: 20px 10px;
+
+        @include media(">xs") {
+            padding: 30px 20px;
+            min-height: 150px;
+        }
 
         & > h4 {
             font-weight: 500;
@@ -234,27 +264,5 @@
                 font-weight: 300;
             }
         }
-    }
-}
-
-@keyframes fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes title-up {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
     }
 }
