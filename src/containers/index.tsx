@@ -4,6 +4,7 @@ import { Dispatch } from 'redux';
 import { GNBLayout } from 'components/layouts';
 import { Button } from '@material-ui/core';
 import { Section } from 'components/contents';
+import { Headline } from 'components/typography';
 import colors from 'constants/colors';
 // import * as userActions from 'actions/User';
 import classnames from 'classnames/bind';
@@ -57,16 +58,6 @@ class Index extends Component<Props, State> {
                 name: 'South America',
                 to: '/',
             },
-            {
-                name: 'Comming soon',
-                to: '/',
-                disabled: true,
-            },
-            {
-                name: 'Comming soon',
-                to: '/',
-                disabled: true,
-            },
         ];
 
         return (
@@ -74,7 +65,7 @@ class Index extends Component<Props, State> {
                 <Section innerRef={this.contentRef}>
                     {continentList.map((continent, i) => {
                         const inner = cx('vertical-wrap', {
-                            disabled: continent.disabled,
+                            // disabled: continent.disabled,
                         });
                         return (
                             <article className={styles.service} key={`${continent.name}-${i}`}>
@@ -119,9 +110,8 @@ class Index extends Component<Props, State> {
                 <Section title="Stay up-to-date with our next projects">
                     <div className={styles.cover}>
                         <div className={styles.inner}>
-                            <h1>
-                                <span>Crush it together</span>
-                            </h1>
+                            {/* Color Navy */}
+                            <Headline level={1}>Crush it together</Headline>
                             <p className={styles.paragraph}>
                                 It is a life we create together. Waiting for good comments.
                             </p>
@@ -145,9 +135,10 @@ class Index extends Component<Props, State> {
                 <Section>
                     <div className={styles.landscape}>
                         <div className={styles.inner}>
-                            <h2>
-                                <span>are you ready to enjoy hygge life?</span>
-                            </h2>
+                            {/* Color Navy */}
+                            <Headline level={2} textcase="uppercase" margin>
+                                are you ready to enjoy hygge life?
+                            </Headline>
                             <Button
                                 variant="contained"
                                 size="large"

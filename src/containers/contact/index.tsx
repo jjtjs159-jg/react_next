@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import { GNBLayout } from 'components/layouts';
 import { BaseDialog } from 'components/dialogs';
 import { useForm } from 'react-hook-form';
+import { Headline } from 'components/typography';
 import { TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import colors from 'constants/colors';
@@ -94,9 +95,11 @@ const Index: FunctionComponent = () => {
                 </article>
                 <article className={styles.contact}>
                     <div>
-                        <h2>
-                            <span>Contact Us</span>
-                        </h2>
+                        <div className={styles['headline-wrap']}>
+                            <Headline level={2} margin>
+                                Contact Us
+                            </Headline>
+                        </div>
                         <form className={styles.form} onSubmit={handleSubmit(handleFormSubmit)}>
                             <fieldset>
                                 <div className={styles.field}>

@@ -33,7 +33,7 @@
     background-image: url('/favicon.png');
     background-repeat: no-repeat;
     background-position: center -100px;
-    background-size: 400px 300px;
+    background-size: 400px;
     padding-top: 185px;
     text-align: center;
     z-index: -1;
@@ -42,7 +42,7 @@
     @include media(">xs") {
         padding-top: 220px;
         background-position: center -100px;
-        background-size: 450px 330px;
+        background-size: 450px;
     }
 
     @include media(">sm") {

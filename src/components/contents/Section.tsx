@@ -1,4 +1,5 @@
 import { FunctionComponent, MutableRefObject } from 'react';
+import { Headline } from 'components/typography';
 import styles from './Section.module.scss';
 
 interface Props {
@@ -10,9 +11,11 @@ const Section: FunctionComponent<Props> = ({ title, innerRef, children }) => {
     return (
         <section className={styles.section}>
             {title && (
-                <h2 className={styles.title}>
-                    <span>{title}</span>
-                </h2>
+                <div className={styles.title}>
+                    <Headline level={3} margin>
+                        {title}
+                    </Headline>
+                </div>
             )}
             <div className={styles.content} ref={innerRef}>
                 {children}

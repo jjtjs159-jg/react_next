@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import { Headline } from 'components/typography';
 import colors from 'constants/colors';
 import styles from './NotFound.module.scss';
 
@@ -24,9 +25,9 @@ const Index: FunctionComponent = () => {
     return (
         <section className={styles.wrap}>
             <div className={styles.title}>
-                <h1>
-                    <span>404 ERROR</span>
-                </h1>
+                <Headline level={1} bold>
+                    404 ERROR
+                </Headline>
             </div>
             <div>
                 <p className={styles.paragraph}>

@@ -1,6 +1,7 @@
 import { FunctionComponent, useRef } from 'react';
 import { Header } from 'components/headers';
 import { GNBFooter } from 'components/footer';
+import { Headline } from 'components/typography';
 import styles from './GNBLayout.module.scss';
 
 interface Props {
@@ -15,9 +16,9 @@ const GNBLayout: FunctionComponent<Props> = ({ title, children }) => {
             <Header stickyRef={contentRef} />
             <main className={styles.main}>
                 <section>
-                    <h2 className={styles['main-title']}>
-                        <span>{title}</span>
-                    </h2>
+                    <div className={styles['main-title']}>
+                        <Headline level={1}>{title}</Headline>
+                    </div>
                     <div className={styles['content-wrap']}>
                         <span className={styles.wave} />
                     </div>
