@@ -1,0 +1,47 @@
+@import "constants/colors";
+@import "helpers/responsive";
+@import "helpers/mixins";
+
+.headline {
+    font-weight: 300;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.margin {
+    margin-bottom: 0.6em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.headline-1 {
+    font-size: 36px;
+
+    @include media(">xs") {
+        font-size: 40px;
+    }
+
+    @include media(">sm") {
+        font-size: 3rem;
+    }
+}
+
+.headline-2 {
+    font-size: 2.4rem;
+}
+
+.headline-3 {
+    font-size: 1.8rem;
+}
+
+.headline-4 {
+    font-size: 1.2rem;
+}
