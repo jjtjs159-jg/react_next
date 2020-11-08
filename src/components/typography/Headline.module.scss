@@ -23,19 +23,35 @@
 }
 
 .headline-1 {
-    font-size: 36px;
+    font-size: 2.1rem;
 
     @include media(">xs") {
-        font-size: 40px;
+        font-size: 2.4rem;
     }
 
     @include media(">sm") {
+        font-size: 2.7rem;
+    }
+
+    @include media(">md") {
         font-size: 3rem;
     }
 }
 
 .headline-2 {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
+
+    @include media(">xs") {
+        font-size: 1.8rem;
+    }
+
+    @include media(">sm") {
+        font-size: 2.1rem;
+    }
+
+    @include media(">md") {
+        font-size: 2.4rem;
+    }
 }
 
 .headline-3 {
