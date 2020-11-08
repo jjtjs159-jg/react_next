@@ -150,7 +150,9 @@ class Index extends Component<Props, State> {
                                     backgroundColor: colors.colorDarkGreen,
                                 }}
                             >
-                                Yes, I’m Ready. Sign Me Up Now
+                                Yes,&nbsp;
+                                <span className={styles['button-text']}>I’m Ready.&nbsp;</span>
+                                Sign Me Up Now
                             </Button>
                         </div>
                     </div>

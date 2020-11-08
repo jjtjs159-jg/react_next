@@ -267,4 +267,11 @@
             padding: 30px;
         }
     }
+
+    .button-text {
+        display: none;
+        @include media(">xs") {
+            display: inline-block;
+        }
+    }
 }
