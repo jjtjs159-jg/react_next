@@ -35,27 +35,33 @@ class Index extends Component<Props, State> {
     render() {
         const continentList = [
             {
-                name: 'Asia',
+                name: 'Seoul',
+                img: '/korea/seoul/seoul_01.jpg',
                 to: '/',
             },
             {
-                name: 'Europe',
+                name: 'Busan',
+                img: '/korea/busan/busan_01.jpg',
                 to: '/',
             },
             {
-                name: 'Africa',
+                name: 'Incheon',
+                img: '/korea/incheon/incheon_01.jpg',
                 to: '/',
             },
             {
-                name: 'Oceania',
+                name: 'Jeju',
+                img: '/korea/jeju/jeju_01.jpg',
                 to: '/',
             },
             {
-                name: 'North America',
+                name: 'Gyeongju',
+                img: '/korea/gyeongju/gyeongju_01.jpg',
                 to: '/',
             },
             {
-                name: 'South America',
+                name: 'Yeosu',
+                img: '/korea/yeosu/yeosu_01.jpg',
                 to: '/',
             },
         ];
@@ -63,29 +69,35 @@ class Index extends Component<Props, State> {
         return (
             <GNBLayout title="Travel the world">
                 <Section innerRef={this.contentRef}>
-                    {continentList.map((continent, i) => {
-                        const inner = cx('vertical-wrap', {
-                            // disabled: continent.disabled,
-                        });
-                        return (
-                            <article className={styles.service} key={`${continent.name}-${i}`}>
-                                <div className={inner}>
-                                    <span>{continent.name}</span>
-                                    <div className={styles['hover-content']}>
-                                        <h3>
-                                            <span>Look around</span>
-                                        </h3>
-                                    </div>
-                                </div>
-                            </article>
-                        );
-                    })}
+                    <div className={styles['service-wrap']}>
+                        {continentList.map((continent, i) => {
+                            const inner = cx('vertical-wrap', {
+                                default: !continent.img,
+                            });
+                            return (
+                                <article className={styles.service} key={`${continent.name}-${i}`}>
+                                    <i className={styles.mask} />
+                                    <figure className={inner}>
+                                        <img
+                                            className={styles.image}
+                                            src={continent.img || '/photo.png'}
+                                            data-src={continent.img}
+                                            alt="cover"
+                                        />
+                                        <figcaption>
+                                            <p>{continent.name}</p>
+                                        </figcaption>
+                                    </figure>
+                                </article>
+                            );
+                        })}
+                    </div>
                 </Section>
                 <Section title="Enjoy Hygge Life">
                     <img
                         className={styles.pattern}
-                        src="/laptop.png"
-                        data-src="/laptop.png"
+                        src="/mountain.png"
+                        data-src="/mountain.png"
                         alt="laptop logo"
                     />
                 </Section>
