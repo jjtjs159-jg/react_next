@@ -160,6 +160,8 @@
     }
 
     &:not(.disabled):hover {
+        max-width: 100%;
+
         & > .hover-content {
             position: absolute;
             background: $colorInfo;
