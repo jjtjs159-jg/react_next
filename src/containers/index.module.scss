@@ -6,7 +6,6 @@
     &:nth-of-type(#{$i}) {
         animation-delay: 0.2s * $i;
         margin-right: 0;
-        margin-bottom: 30px;
 
         @include media(">xs") {
             margin-right: 30px;
@@ -54,29 +53,32 @@
     position: relative;
     display: inline-block;
     background-color: $colorSky3;
-    padding-bottom: 75%;
+    padding-bottom: 50%;
+    width: 100%;
+    margin-bottom: 15px;
 
     @for $i from 1 through 8 {
         @include getServiceSpec($i);
     }
 
-    @include media("<=xs") {
-        width: 100%;
-    }
+    // @include media("<=xs") {
+    //     width: 100%;
+    // }
 
     @include media(">xs") {
         width: calc(100% / 2 - 30px / 2);
-        padding-bottom: 50%;
+        margin-bottom: 30px;
+        padding-bottom: 40%;
     }
 
     @include media(">sm") {
         width: calc(100% / 3 - 60px / 3);
-        padding-bottom: 30%;
+        padding-bottom: 25%;
     }
 
     @include media(">md") {
         width: calc(100% / 4 - 90px / 4);
-        padding-bottom: 25%;
+        padding-bottom: 20%;
     }
 
     @include media(">lg") {
@@ -87,19 +89,30 @@
 
 .cover {
     background: $colorSky3;
-    padding-bottom: 25%;
+    // padding-bottom: 25%;
     position: relative;
 
     .inner {
-        position: absolute;
+        // position: absolute;
         text-align: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+
+        @include media(">xs") {
+            padding: 30px;
+        }
 
         & > p {
             font-size: 1.2rem;
-            margin-bottom: 2em;
+            margin-bottom: 1.2em;
+
+            @include media(">xs") {
+                margin-bottom: 1.8em;
+            }
         }
     }
 }
@@ -120,7 +133,10 @@
     text-align: center;
     width: 100%;
     height: 100%;
-    top: 0;
+    max-width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     & > span {
         color: $colorNavy;
@@ -214,7 +230,7 @@
 
         @include media(">xs") {
             padding: 30px 20px;
-            min-height: 150px;
+            min-height: 120px;
         }
 
         & > h4 {
@@ -235,7 +251,7 @@
     background-repeat: no-repeat;
     background-position: center 45%;
     background-size: cover;
-    padding-bottom: 20%;
+    height: 250px;
     position: relative;
 
     .inner {
@@ -245,5 +261,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        padding: 15px;
+
+        @include media(">xs") {
+            padding: 30px;
+        }
     }
 }
