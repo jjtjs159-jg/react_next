@@ -64,6 +64,16 @@ class Index extends Component<Props, State> {
                 img: '/korea/yeosu/yeosu_01.jpg',
                 to: '/',
             },
+            {
+                name: 'Gangneung',
+                img: '/korea/gangneung/gangneung_01.jpg',
+                to: '/',
+            },
+            {
+                name: 'Gapyeong',
+                img: '/korea/gapyeong/gapyeong_01.jpg',
+                to: '/',
+            },
         ];
 
         return (

@@ -271,6 +271,11 @@
     height: 250px;
     position: relative;
 
+    @include media(">lg") {
+        background-position: center 60%;
+        height: 300px;
+    }
+
     .inner {
         position: absolute;
         text-align: center;
