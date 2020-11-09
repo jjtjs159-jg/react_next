@@ -5,6 +5,9 @@ import { GNBLayout } from 'components/layouts';
 import { Button } from '@material-ui/core';
 import { Section } from 'components/contents';
 import { Headline } from 'components/typography';
+import { withTranslation } from '../i18n';
+import LanguageSelector from 'components/LanguageSelector';
+import { TFunction } from 'next-i18next';
 import colors from 'constants/colors';
 // import * as userActions from 'actions/User';
 import classnames from 'classnames/bind';
@@ -13,6 +16,7 @@ import styles from './index.module.scss';
 const cx = classnames.bind(styles);
 
 interface Props {
+    readonly t: TFunction;
     classes: any;
     dispatch: Dispatch;
     [key: string]: any;
@@ -24,6 +28,7 @@ interface State {
 
 class Index extends Component<Props, State> {
     private contentRef = createRef<HTMLHeadingElement>();
+
     constructor(props: Props) {
         super(props);
 
@@ -76,10 +81,15 @@ class Index extends Component<Props, State> {
             },
         ];
 
+        const { t } = this.props;
+
         return (
             <GNBLayout title="Travel the world">
                 <Section innerRef={this.contentRef}>
                     <div className={styles['service-wrap']}>
+                        <h1>{t('back-to-home')}</h1>
+                        <h1>{t('description')}</h1>
+
                         {continentList.map((continent, i) => {
                             const inner = cx('vertical-wrap', {
                                 default: !continent.img,
@@ -104,6 +114,7 @@ class Index extends Component<Props, State> {
                     </div>
                 </Section>
                 <Section title="Enjoy Hygge Life">
+                    <LanguageSelector />
                     <img
                         className={styles.pattern}
                         src="/mountain.png"
@@ -190,4 +201,4 @@ const mapStateToProps = (state: any) => {
     };
 };
 
-export default connect(mapStateToProps)(Index);
+export default withTranslation('common')(connect(mapStateToProps)(Index));
