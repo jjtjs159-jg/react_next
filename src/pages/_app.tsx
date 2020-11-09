@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import Head from 'next/head';
 import Router from 'next/router';
 import ga from 'analytics/ga';
+import { appWithTranslation } from '../i18n';
 import './_app.scss';
 
 /**
@@ -18,6 +19,16 @@ import './_app.scss';
 NProgress.configure({ showSpinner: false });
 
 class Home extends App<AppProps, any> {
+    static async getInitialProps({ Component, ctx }) {
+        let pageProps = {};
+
+        if (Component.getInitialProps) {
+            pageProps = await Component.getInitialProps(ctx);
+        }
+
+        return { pageProps };
+    }
+
     componentDidMount() {
         if (!window.ga) {
             ga.initGA();
@@ -69,4 +80,4 @@ class Home extends App<AppProps, any> {
 }
 
 // Next Redux Wrapper의 사용으로 pre-render가 비활성된 상태
-export default Wrapper.withRedux(Home);
+export default Wrapper.withRedux(appWithTranslation(Home));
