@@ -13,13 +13,13 @@ const LanguageSelector = () => {
             <li>
                 <button className="button special big" onClick={() => onChangeLanguage('ko')}>
                     {/* debug true로 console에 출력 중 */}
-                    {t('korea')}
+                    korea
                 </button>
             </li>
             <li>
                 <button className="button special big" onClick={() => onChangeLanguage('en')}>
                     {/* debug true로 console에 출력 중 */}
-                    {t('english')}
+                    english
                 </button>
             </li>
         </ul>
