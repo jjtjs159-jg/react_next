@@ -4,6 +4,7 @@ import ko from 'i18next-icu/locale-data/ko';
 import NextI18Next from 'next-i18next';
 import { useTranslation as originalUseTranslation } from 'react-i18next';
 import { NextComponentType, NextPageContext } from 'next';
+import path from 'path';
 
 const use: IcuInstance[] = [];
 const icu = new ICU({});
@@ -18,7 +19,7 @@ const NextI18NextInstance = new NextI18Next({
     defaultNS: 'common',
     fallbackLng: 'en',
     keySeparator: '###',
-    localePath: 'public/static/locales',
+    localePath: path.resolve('public/static/locales'),
     otherLanguages: ['ko'],
     use,
 });
