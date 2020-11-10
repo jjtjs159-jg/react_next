@@ -87,8 +87,8 @@ class Index extends Component<Props, State> {
             <GNBLayout title="Travel the world">
                 <Section innerRef={this.contentRef}>
                     <div className={styles['service-wrap']}>
-                        <h1>{t('back-to-home')}</h1>
-                        <h1>{t('description')}</h1>
+                        {/* <h1>{t('back-to-home')}</h1>
+                        <h1>{t('description')}</h1> */}
 
                         {continentList.map((continent, i) => {
                             const inner = cx('vertical-wrap', {
@@ -114,7 +114,7 @@ class Index extends Component<Props, State> {
                     </div>
                 </Section>
                 <Section title="Enjoy Hygge Life">
-                    <LanguageSelector />
+                    {/* <LanguageSelector /> */}
                     <img
                         className={styles.pattern}
                         src="/mountain.png"

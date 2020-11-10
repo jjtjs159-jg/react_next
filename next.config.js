@@ -3,6 +3,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+    // i18n: {
+    //     locales: ['en-US', 'ko'],
+    //     defaultLocale: 'en-US',
+    // },
+
+    // i18n: {
+    //     localeDetection: false,
+    // },
+
     devIndicators: {
         // 페이지 우측 하단에 prerender 표시
         autoPrerender: true,
