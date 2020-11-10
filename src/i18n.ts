@@ -14,7 +14,7 @@ use.push(icu);
 
 const NextI18NextInstance = new NextI18Next({
     browserLanguageDetection: false,
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     defaultLanguage: 'en',
     defaultNS: 'common',
     fallbackLng: 'en',
