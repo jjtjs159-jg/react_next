@@ -6,7 +6,6 @@ import { Button } from '@material-ui/core';
 import { Section } from 'components/contents';
 import { Headline } from 'components/typography';
 import { withTranslation } from '../i18n';
-import LanguageSelector from 'components/LanguageSelector';
 import { TFunction } from 'next-i18next';
 import colors from 'constants/colors';
 // import * as userActions from 'actions/User';

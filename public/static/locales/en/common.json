@@ -2,5 +2,6 @@
     "description": "description",
     "error-with-status": "error with status",
     "error-without-status": "error without status",
-    "back-to-home": "Back to home"
+    "back-to-home": "Back to home",
+    "language": "language"
 }

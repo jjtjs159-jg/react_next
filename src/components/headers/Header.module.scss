@@ -124,15 +124,15 @@
         top: 50%;
         transform: translateY(-50%);
         text-align: right;
-    }
 
-    & li {
-        @extend %hover-effect;
-        text-transform: uppercase;
-        display: inline-block;
-        margin-left: 2.4rem;
-        font-weight: 600;
-        transition: color 0.25s;
+        & > li {
+            @extend %hover-effect;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-left: 2.4rem;
+            font-weight: 600;
+            transition: color 0.25s;
+        }
     }
 }
 

@@ -2,5 +2,6 @@
     "description": "설명",
     "error-with-status": "error with status",
     "error-without-status": "error without status",
-    "back-to-home": "홈으로"
+    "back-to-home": "홈으로",
+    "language": "언어"
 }
