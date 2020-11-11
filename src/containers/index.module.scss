@@ -1,6 +1,6 @@
 @import "constants/colors";
-@import "helpers/responsive";
-@import "helpers/mixins";
+@import "helpers/_responsive";
+@import "helpers/_mixins";
 
 @mixin getServiceSpec($i) {
     &:nth-of-type(#{$i}) {

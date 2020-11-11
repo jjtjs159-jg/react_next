@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import ga from 'analytics/ga';
 import { appWithTranslation } from '../i18n';
-import './_app.scss';
+import 'helpers/common.scss';
 
 /**
  * App 이용 시

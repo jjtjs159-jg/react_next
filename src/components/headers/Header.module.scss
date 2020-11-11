@@ -1,5 +1,5 @@
 @import "constants/colors"; // 루트 import의 경우 직접 파일 정의로 갈수는 없는가 ?
-@import "helpers/responsive";
+@import "helpers/_responsive";
 
 %hover-effect {
     & > a {
@@ -70,8 +70,7 @@
         // height: 100px;
 
         &.active {
-            background: #fff;
-            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.8);
             border-bottom: 1px solid #f2f2f2;
         }
     }
