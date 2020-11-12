@@ -37,8 +37,10 @@ class Index extends Component<Props, State> {
     }
 
     render() {
+        const { t } = this.props;
         const continentList = [
             {
+                // name: t('seoul'),
                 name: 'Seoul',
                 img: '/korea/seoul/seoul_01.jpg',
                 to: '/',
@@ -79,8 +81,6 @@ class Index extends Component<Props, State> {
                 to: '/',
             },
         ];
-
-        const { t } = this.props;
 
         return (
             <GNBLayout title="Travel the world">

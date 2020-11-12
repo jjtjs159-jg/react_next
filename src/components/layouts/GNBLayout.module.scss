@@ -37,7 +37,7 @@
     padding-top: 185px;
     text-align: center;
     z-index: -1;
-    transition: background-size 0.25s, padding-top 0.25s;
+    transition: background-size 0.25s;
 
     @include media(">xs") {
         padding-top: 220px;
