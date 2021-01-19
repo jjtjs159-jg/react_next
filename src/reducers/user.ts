@@ -1,4 +1,4 @@
-import * as userActions from 'actions/User';
+import * as userActions from 'actions/user';
 
 interface Action {
     type: string;
