@@ -1,2 +1,2 @@
-import Page from 'containers/Error/NotFound';
+import Page from 'containers/error/NotFound';
 export default Page;
