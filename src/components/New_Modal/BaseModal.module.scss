@@ -1,0 +1,53 @@
+.wrapper {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgb(0, 0, 0, 0.15), 0 9px 46px 8px rgb(0, 0, 0, 0.12);
+    min-width: 384px;
+    outline: 0;
+
+    &.light {
+        background-color: #efefef;
+        color: #000;
+    }
+
+    &.dark {
+        background-color: var(--gray200);
+        color: #fff;
+    }
+
+    &.icon {
+        padding-top: 16px;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--gray600);
+    }
+
+    & > svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+.content {
+    padding: 32px;
+}

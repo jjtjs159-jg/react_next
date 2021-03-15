@@ -7,7 +7,7 @@
     "stylelint.enable": true,
     "editor.formatOnSave": false,
     "eslint.alwaysShowStatus": true,
-    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "typescript.tsdk": "node_modules/typescript/lib",
     "workbench.colorCustomizations": {
         "activityBar.foreground": "#7A9EFF",
         "badge.background": "#0088AA"

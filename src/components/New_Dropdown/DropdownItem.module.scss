@@ -1,0 +1,24 @@
+@import './common';
+
+.menu-item {
+    @include reset-list-style();
+    padding: 1rem $borderRadius;
+    cursor: pointer;
+    border-radius: $borderRadius;
+    margin-bottom: 5px;
+
+    &:last-child {
+        margin: 0;
+    }
+
+    // hover, focus 효과의 구분이 필요
+    &:hover {
+        background-color: tint(#3785f7, 25%);
+        color: #fff;
+    }
+
+    &:focus {
+        background-color: #3785f7;
+        color: #fff;
+    }
+}
