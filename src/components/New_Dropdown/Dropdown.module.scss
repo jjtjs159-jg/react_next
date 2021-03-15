@@ -1,0 +1,36 @@
+@import './common';
+
+.wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.button-toggle {
+    @include reset-button-style();
+    display: inline-block;
+    padding: 1rem;
+    background-color: #454545;
+    color: #fff;
+    min-width: 10rem;
+    text-align: left;
+    font-weight: 300;
+    border-radius: $borderRadius;
+
+    &.open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #454545;
+    color: #a7a7a7;
+    padding: $borderRadius;
+    min-width: 10rem;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
+    overflow: hidden;
+}

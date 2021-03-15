@@ -1,0 +1,15 @@
+.wrapper {
+    position: relative;
+    display: inline-flex;
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    &.frame {
+        padding: 0.6rem;
+    }
+
+    &:focus {
+        border: 1px solid var(--vivid-blue);
+    }
+}
