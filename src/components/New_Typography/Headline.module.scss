@@ -1,6 +1,7 @@
 .headline {
     margin: 0;
     padding: 0;
+    line-height: 1.6em;
 
     &.bold {
         font-weight: bold;
@@ -24,8 +25,8 @@ $heading-max: 6;
 
 @for $i from $heading-max through length($heading-min) {
     .headline-#{$i} {
-        $font-size: 64 - 8 * ($i - 1);
-        $margin-bottom: 48 - 4 * ($i - 1);
+        $font-size: 48 - 8 * ($i - 1);
+        $margin-bottom: 32 - 4 * ($i - 1);
         font-size: #{$font-size}px;
 
         &.margin {

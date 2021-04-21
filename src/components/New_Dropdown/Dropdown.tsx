@@ -3,6 +3,7 @@ import _ from 'lodash';
 import DropdownItem from './DropdownItem';
 import classNames from 'classnames/bind';
 import styles from './Dropdown.module.scss';
+import { IconWrapper, SvgPath } from 'components/New_Icon';
 
 const cx = classNames.bind(styles);
 
@@ -54,6 +55,7 @@ const Dropdown: FunctionComponent<Props> = ({ list, onSelect }) => {
     const handleSelect = useCallback(
         (key: string, value: string) => {
             setSelectedValue(value);
+            setIsOpen(false);
             onSelect(key, value);
         },
         [onSelect],
@@ -61,7 +63,7 @@ const Dropdown: FunctionComponent<Props> = ({ list, onSelect }) => {
 
     useEffect(() => {
         if (buttonRef && buttonRef.current) {
-            setTransform(`translate3d(0px, ${buttonRef.current.offsetHeight}px, 0px)`);
+            setTransform(`translate3d(0px, ${buttonRef.current.offsetHeight - 21}px, 0px)`);
         }
     }, []);
 
@@ -110,13 +112,13 @@ const Dropdown: FunctionComponent<Props> = ({ list, onSelect }) => {
                 if (currentRef) {
                     if (!currentRef.contains(e.target as Node)) {
                         e.preventDefault();
-                        firstFocusTarget.focus();
+                        // firstFocusTarget.focus();
                     }
                 }
             };
 
             const handleOutSideClick = (e: MouseEvent) => {
-                e.preventDefault();
+                // e.preventDefault();
                 const target = e.target as Node;
                 const isContains = wrapperRef.current?.contains(target);
 
@@ -137,15 +139,31 @@ const Dropdown: FunctionComponent<Props> = ({ list, onSelect }) => {
         }
     }, [handleClose, handleToggle, isOpen]);
 
-    const classes = cx('button-toggle', {
+    const buttonClasses = cx('button-toggle', {
+        open: isOpen,
+    });
+
+    const arrowClasses = cx('arrow', {
         open: isOpen,
     });
 
     return (
         <div ref={wrapperRef} className={cx('wrapper')}>
-            <button ref={buttonRef} className={classes} onClick={handleToggle}>
-                {selectedValue}
-            </button>
+            <div className={cx('header')}>
+                <button
+                    type="button"
+                    ref={buttonRef}
+                    className={buttonClasses}
+                    onClick={handleToggle}
+                >
+                    <div className={cx('text')}>{selectedValue}</div>
+                    <IconWrapper
+                        className={arrowClasses}
+                        icon={SvgPath.ChevronLeft}
+                        hasFrame={false}
+                    />
+                </button>
+            </div>
             {isOpen && (
                 <ul className={cx('menu')} style={{ transform }} role="menu">
                     {_.map(list, (item, i) => {

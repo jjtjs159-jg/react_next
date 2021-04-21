@@ -1,0 +1,17 @@
+@import 'constants/colors';
+@import 'helpers/_mixins';
+@import 'styles/libraries/_functions';
+
+.wrapper {
+    position: absolute;
+    display: inline-block;
+    border-radius: 8px;
+    padding: 8px;
+    // background-color: $gray600;
+    background-color: #ecedee;
+    z-index: 999;
+}
+
+.menu {
+    @include reset-list-style();
+}

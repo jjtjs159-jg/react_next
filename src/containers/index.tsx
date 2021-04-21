@@ -129,7 +129,7 @@ class Index extends Component<Props, State> {
                                 <p>frontend developer</p>
                             </div>
                         </div>
-                        {[1, 2, 3, 4, 5, 6, 7].map((cell, i) => (
+                        {[1, 2, 3, 4].map((cell, i) => (
                             <div className={styles.cell} key={i}>
                                 <div className={styles.creator}>
                                     <h4>any others</h4>

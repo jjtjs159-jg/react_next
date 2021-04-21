@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import classnames from 'classnames/bind';
 import styles from './Overlay.module.scss';
 
@@ -14,7 +15,7 @@ const defaultProps: Partial<Props> = {
     theme: 'light',
 };
 
-const Overlay: React.FC<Props> = ({ theme, onClose }) => {
+const Overlay: FunctionComponent<Props> = ({ theme, onClose }) => {
     /**
      * @todo 추후, Global Theme 지정 시, html 또는 body에서 global theme classname을 부여하고 이에 따라 자동적으로 지정되게끔 수정이 필요함
      */

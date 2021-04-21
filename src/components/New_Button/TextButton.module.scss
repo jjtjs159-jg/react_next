@@ -1,0 +1,40 @@
+@import 'constants/colors';
+@import 'helpers/_mixins';
+
+.text {
+    @include reset-button-style();
+    font-weight: 600;
+    transition: color 0.25s;
+
+    &.fullSize {
+        width: 100%;
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+        color: lighten($color: $primaryColor, $amount: 4%);
+
+        &:hover {
+            color: lighten($color: $primaryColor, $amount: 4%);
+        }
+    }
+}
+
+.small {
+    min-width: 64px;
+    padding: 6px 16px;
+    font-size: 14px;
+}
+
+.primary {
+    color: $primaryColor;
+
+    // &:focus,
+    // &:hover {
+
+    // }
+
+    &:active {
+        color: darken($color: $primaryColor, $amount: 4%);
+    }
+}

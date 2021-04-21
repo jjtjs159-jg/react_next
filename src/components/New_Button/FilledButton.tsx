@@ -1,4 +1,4 @@
-import React, { memo, ButtonHTMLAttributes } from 'react';
+import { FunctionComponent, memo, ButtonHTMLAttributes, MouseEvent, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import styles from './FilledButton.module.scss';
 
@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 interface BaseProps {
     size?: 'small' | 'medium' | 'large';
-    color?: 'primary';
+    color?: 'primary' | 'secondary';
     text?: string;
     fullSize?: boolean;
 }
@@ -18,12 +18,13 @@ const defaultProps: Partial<BaseProps> = {
     size: 'small',
 };
 
-const FilledButton: React.FC<Props> = ({
+const FilledButton: FunctionComponent<Props> = ({
     size,
     text,
     color,
     fullSize,
     disabled,
+    onClick,
     className,
     children,
     ...rest
@@ -33,8 +34,17 @@ const FilledButton: React.FC<Props> = ({
         fullSize,
     });
 
+    const handleClick = useCallback(
+        (e: MouseEvent<HTMLButtonElement>) => {
+            if (!disabled) {
+                onClick && onClick(e);
+            }
+        },
+        [disabled, onClick],
+    );
+
     return (
-        <button className={classes} {...rest}>
+        <button className={classes} onClick={handleClick} {...rest}>
             {text || children}
         </button>
     );

@@ -1,36 +1,65 @@
-@import './common';
+@import 'helpers/_mixins';
+@import 'constants/colors';
+@import 'styles/libraries/_functions';
 
 .wrapper {
     position: relative;
     display: inline-block;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .button-toggle {
     @include reset-button-style();
-    display: inline-block;
-    padding: 1rem;
-    background-color: #454545;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3px 8px;
+    background-color: #303030;
     color: #fff;
-    min-width: 10rem;
+    min-width: 72px;
+    max-height: 10rem;
     text-align: left;
     font-weight: 300;
-    border-radius: $borderRadius;
+    border-radius: 4px;
+}
+
+.text {
+    margin-right: 8px;
+    letter-spacing: 0.2px;
+}
+
+.arrow {
+    border: 0;
+
+    & > svg {
+        width: 6px;
+        transform: rotate(-90deg);
+        color: #7a7a7a;
+    }
 
     &.open {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        & > svg {
+            width: 6px;
+            transform: rotate(90deg);
+        }
     }
 }
 
 .menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #454545;
+    position: fixed;
+    background-color: #282727;
+    min-width: 72px;
     color: #a7a7a7;
-    padding: $borderRadius;
-    min-width: 10rem;
-    border-bottom-left-radius: $borderRadius;
-    border-bottom-right-radius: $borderRadius;
+    padding: 6px;
+    max-height: 10rem;
+    border-radius: 6px;
+    border: 1px solid $gray300;
     overflow: hidden;
+    z-index: 999;
+    letter-spacing: 1px;
 }

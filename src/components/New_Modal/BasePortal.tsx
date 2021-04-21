@@ -1,4 +1,4 @@
-import { FunctionComponent, MutableRefObject } from 'react';
+import React, { FunctionComponent, MutableRefObject } from 'react';
 import ReactDOM from 'react-dom';
 
 interface Props {

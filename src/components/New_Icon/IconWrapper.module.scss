@@ -1,15 +1,19 @@
+@import 'constants/colors';
+
 .wrapper {
     position: relative;
-    display: inline-flex;
     outline: 0;
     border: 1px solid transparent;
-    border-radius: 50%;
 
     &.frame {
         padding: 0.6rem;
     }
 
+    &.button {
+        cursor: pointer;
+    }
+
     &:focus {
-        border: 1px solid var(--vivid-blue);
+        border: 1px solid $primaryColor;
     }
 }

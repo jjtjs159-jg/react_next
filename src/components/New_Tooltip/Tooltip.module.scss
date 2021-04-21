@@ -1,0 +1,38 @@
+@import 'constants/colors';
+@import 'helpers/_mixins';
+
+.wrapper {
+    position: absolute;
+    // background-color: $gray200;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff;
+    text-align: center;
+    font-size: 11px;
+    // width: 80px;
+    padding: 4px 0;
+    border-radius: 4px;
+    left: 50%;
+    transform: translate(-50%, 150%);
+    // left: 25%;
+    // margin-left: -50%;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgb(0, 0, 0, 0.15), 0 9px 46px 8px rgb(0, 0, 0, 0.12);
+    z-index: 1;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #fff transparent;
+    }
+}
+
+.inner {
+    @include ellipsis(1, 1.6);
+    width: 80px;
+    padding: 0 8px;
+}

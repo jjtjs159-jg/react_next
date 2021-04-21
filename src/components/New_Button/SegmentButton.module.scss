@@ -1,0 +1,48 @@
+@import 'constants/colors';
+@import 'helpers/_mixins';
+
+.segment-group {
+    display: flex;
+    align-items: center;
+}
+
+.segment {
+    @include reset-button-style();
+    border-radius: 4px;
+    transition: background-color 0.25s;
+
+    &.fullSize {
+        width: 100%;
+    }
+}
+
+.icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    color: #7a7a7a;
+
+    & > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 16px;
+    }
+
+    &:hover {
+        background-color: $gray400;
+        color: $gray600;
+    }
+
+    &:active {
+        background-color: $primaryColor;
+        color: #fff;
+    }
+
+    &.selected {
+        background-color: $primaryColor;
+        color: #fff;
+    }
+}

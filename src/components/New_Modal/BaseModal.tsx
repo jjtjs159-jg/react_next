@@ -6,11 +6,12 @@ import {
     useEffect,
     useRef,
     useState,
+    useCallback,
 } from 'react';
 import _ from 'lodash';
 import { Overlay } from 'components/New_Overlay';
-import { Headline } from 'components/New_Typography';
-import { IconWrapper, SvgPath } from 'components/New_Icons';
+import { Headline, Html } from 'components/New_Typography';
+import { IconWrapper, SvgPath } from 'components/New_Icon';
 import BasePortal from './BasePortal';
 import classnames from 'classnames/bind';
 import styles from './BaseModal.module.scss';
@@ -19,15 +20,14 @@ const cx = classnames.bind(styles);
 
 type Theme = 'light' | 'dark';
 
-/**
- * ===WARN===
- * React의 memo type정의가 잘못되어있어서 children props를 임의로 명시
- */
 export interface Props {
-    onClose: () => void;
+    className?: string;
+    onClose?: () => void;
+    onOutsideClose?: () => void;
     hasCloseIcon?: boolean;
     theme?: Theme;
     title?: string;
+    isAlert?: boolean;
     children?: ReactNode;
 }
 
@@ -47,10 +47,19 @@ const focusableTargetList = [
 
 const defaultProps: Partial<Props> = {
     theme: 'light',
-    hasCloseIcon: true,
+    hasCloseIcon: false,
 };
 
-const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, title, children }) => {
+const BaseModal: FunctionComponent<Props> = ({
+    className,
+    theme,
+    onClose,
+    hasCloseIcon,
+    title,
+    isAlert,
+    onOutsideClose,
+    children,
+}) => {
     const portalRef = useRef(document.getElementById('portal')) as MutableRefObject<HTMLElement>;
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -60,6 +69,16 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
     useEffect(() => {
         const mainElement = document.getElementById('_next');
         mainElement?.setAttribute('aria-hidden', 'true');
+
+        const focusableNodeList = modalRef?.current?.querySelectorAll(
+            focusableTargetList.toString(),
+        );
+        const focusableElementList = Array.prototype.slice.call(focusableNodeList);
+
+        const firstFocusTarget = focusableElementList[0];
+
+        // 초기 Modal Open시 focus 가능한 element에 기본 focus
+        firstFocusTarget.focus();
 
         return () => {
             mainElement?.removeAttribute('aria-hidden');
@@ -76,7 +95,7 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
         const lastFocusTarget = focusableElementList[focusableElementList.length - 1];
 
         // 초기 Modal Open시 focus 가능한 element에 기본 focus
-        firstFocusTarget.focus();
+        // firstFocusTarget.focus();
 
         const handleKeyPress = (e: KeyboardEvent) => {
             // Trap Tab Key: KeyCode 9
@@ -100,7 +119,7 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
 
             // ESC Key: KeyCode 27
             if (_.isEqual(e.key, 'Escape')) {
-                onClose();
+                onClose && onClose();
             }
 
             // Enter Key: Keycode 13
@@ -113,7 +132,7 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
             if (modalRef.current) {
                 if (!modalRef.current.contains(e.target as Node)) {
                     e.preventDefault();
-                    firstFocusTarget.focus();
+                    // firstFocusTarget.focus();
                 }
             }
         };
@@ -134,9 +153,21 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
         icon: hasCloseIcon,
     });
 
+    const handleOutSideClose = useCallback(() => {
+        if (onOutsideClose) {
+            onOutsideClose();
+        }
+    }, [onOutsideClose]);
+
+    const classes = className ? cx('wrapper', className) : cx('wrapper');
+
+    const titleClasses = cx('title', {
+        margin: !!children,
+    });
+
     return (
         <BasePortal container={portalRef}>
-            <div className={cx('wrapper')} ref={modalRef}>
+            <div className={classes} ref={modalRef}>
                 <div className={innerClasses} tabIndex={0}>
                     {hasCloseIcon && (
                         <IconWrapper
@@ -146,15 +177,24 @@ const BaseModal: FunctionComponent<Props> = ({ theme, onClose, hasCloseIcon, tit
                         />
                     )}
                     <div className={cx('content')}>
+                        {isAlert && (
+                            <div className={cx('alert-wrapper')}>
+                                <IconWrapper
+                                    className={cx('alert')}
+                                    icon={SvgPath.Alert}
+                                    hasFrame={false}
+                                />
+                            </div>
+                        )}
                         {title && (
-                            <Headline level="6" align="center" bold margin>
-                                {title}
+                            <Headline className={titleClasses} level="5" align="center" bold>
+                                <Html content={title} />
                             </Headline>
                         )}
                         {children}
                     </div>
                 </div>
-                <Overlay onClose={onClose} />
+                <Overlay onClose={handleOutSideClose} />
             </div>
         </BasePortal>
     );

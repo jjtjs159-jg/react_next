@@ -21,11 +21,14 @@ export interface Props {
 }
 
 const DropdownItem: FunctionComponent<Props> = ({ item, selectedValue, onSelect }) => {
-    const handleClick: MouseEventHandler<HTMLLIElement> = useCallback(() => {
-        if (!_.isEqual(selectedValue, item.value)) {
-            onSelect(item.key, item.value);
-        }
-    }, [item.key, item.value, onSelect, selectedValue]);
+    const handleClick: MouseEventHandler<HTMLLIElement> = useCallback(
+        (_e) => {
+            if (!_.isEqual(selectedValue, item.value)) {
+                onSelect(item.key, item.value);
+            }
+        },
+        [item.key, item.value, onSelect, selectedValue],
+    );
 
     const handleSelect: KeyboardEventHandler<HTMLLIElement> = useCallback(
         (e) => {

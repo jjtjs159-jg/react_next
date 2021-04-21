@@ -1,0 +1,71 @@
+@import 'constants/colors';
+
+%input {
+    position: relative;
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    caret-color: #fff;
+    color: #fff;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+        -webkit-text-fill-color: none;
+        box-shadow: 0 0 0 1000px #fff inset;
+        transition: background-color 500000s ease-in-out 0s;
+    }
+
+    &:not(.arrow) {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+
+    &.arrow {
+        background: url('/images/InputArrow.svg');
+        background-position: center right;
+        background-size: auto;
+        background-repeat: no-repeat;
+
+        &::-webkit-inner-spin-button {
+            opacity: 1;
+            -webkit-appearance: none;
+            background: transparent;
+            cursor: pointer;
+            width: 24px;
+            height: 32px;
+        }
+    }
+
+    &.fullSize {
+        width: 100%;
+    }
+
+    &::placeholder {
+        color: $gray500 !important;
+        text-align: left;
+        opacity: 1;
+        transition: color 0.3s;
+    }
+
+    &.disabled {
+        color: rgba(255, 255, 255, 0.2) !important;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+
+    &.invalid {
+        color: $pastel-red;
+    }
+}
+
+.input {
+    @extend %input;
+}

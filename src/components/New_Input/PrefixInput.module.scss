@@ -1,0 +1,22 @@
+@import 'constants/colors';
+
+.input-wrapper {
+    display: flex;
+    background-color: $gray300;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.prefix {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: $primaryColor;
+    margin-right: 8px;
+}
+
+.input {
+    display: inline-flex;
+    width: 100%;
+}
