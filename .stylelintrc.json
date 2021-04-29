@@ -1,37 +1,53 @@
 {
-    "plugins": [
-        "stylelint-scss",
-        "stylelint-order"
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order"
+  ],
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "order/order": [
+      "custom-properties",
+      "declarations"
     ],
-    "extends": [
-        "stylelint-config-standard"
+    "indentation": [
+      2
     ],
-    "rules": {
-        "order/order": [
-			"custom-properties",
-			"declarations"
-		],
-        "indentation": [
-            4
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "ignore": [
+          "inside-block"
         ],
-        "at-rule-empty-line-before": [
-            "always",
-            {
-                "ignore": ["inside-block"],
-                "ignoreAtRules": ["import"]
-            }
-        ],
-        "block-no-empty": null,
-        "at-rule-no-unknown": [
-            true,
-            {
-                "ignoreAtRules": [
-                    "mixin", "include", "charset", "function", "for", "each", "if", "else", "error", "warn", "return", "extend"
-                ]
-            }
-        ],
-        "max-nesting-depth": 3,
-        "value-keyword-case": null,
-        "declaration-empty-line-before": "never"
-    }
+        "ignoreAtRules": [
+          "import"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "mixin",
+          "include",
+          "charset",
+          "function",
+          "for",
+          "each",
+          "if",
+          "else",
+          "error",
+          "warn",
+          "return",
+          "extend"
+        ]
+      }
+    ],
+    "max-nesting-depth": 3,
+    "value-keyword-case": null,
+    "declaration-empty-line-before": "never",
+    "function-whitespace-after": "never",
+    "no-descending-specificity": null
+  }
 }

@@ -1,6 +1,6 @@
 import App, { AppProps } from 'next/app';
 import { Fragment } from 'react';
-import Wrapper from 'store/store';
+import { wrapper } from 'store';
 import NProgress from 'nprogress';
 import Head from 'next/head';
 import Router from 'next/router';
@@ -19,65 +19,65 @@ import 'helpers/common.scss';
 NProgress.configure({ showSpinner: false });
 
 class Home extends App<AppProps, any> {
-    static async getInitialProps({ Component, ctx }) {
-        let pageProps = {};
+  static async getInitialProps({ Component, ctx }) {
+    let pageProps = {};
 
-        if (Component.getInitialProps) {
-            pageProps = await Component.getInitialProps(ctx);
-        }
-
-        return { pageProps };
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    componentDidMount() {
-        if (!window.ga) {
-            ga.initGA();
-        }
+    return { pageProps };
+  }
 
-        Router.router.events.on('routeChangeStart', this.handleRouteChangeStart);
-        Router.router.events.on('routeChangeError', this.handleRouteChangeError);
-        Router.router.events.on('routeChangeComplete', this.handleRouteChangeComplete);
+  componentDidMount() {
+    if (!window.ga) {
+      ga.initGA();
     }
 
-    componentWillUnmount() {
-        Router.router.events.off('routeChangeComplete', this.handleRouteChangeComplete);
-    }
+    Router.router.events.on('routeChangeStart', this.handleRouteChangeStart);
+    Router.router.events.on('routeChangeError', this.handleRouteChangeError);
+    Router.router.events.on('routeChangeComplete', this.handleRouteChangeComplete);
+  }
 
-    handleRouteChangeStart = () => {
-        NProgress.start();
-    };
+  componentWillUnmount() {
+    Router.router.events.off('routeChangeComplete', this.handleRouteChangeComplete);
+  }
 
-    handleRouteChangeError = () => {
-        // console.log('error');
-    };
+  handleRouteChangeStart = () => {
+    NProgress.start();
+  };
 
-    handleRouteChangeComplete = () => {
-        NProgress.done();
-        ga.logPageView();
-    };
+  handleRouteChangeError = () => {
+    // console.log('error');
+  };
 
-    render() {
-        const { Component, pageProps } = this.props;
+  handleRouteChangeComplete = () => {
+    NProgress.done();
+    ga.logPageView();
+  };
 
-        return (
-            <Fragment>
-                <Head>
-                    <title>HYGLIFE</title>
-                    {/* Viewport meta tags should not be used in _document.js's <Head> */}
-                    <meta
-                        name="viewport"
-                        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no"
-                    />
-                    {/* <meta
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <Fragment>
+        <Head>
+          <title>HYGLIFE</title>
+          {/* Viewport meta tags should not be used in _document.js's <Head> */}
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no"
+          />
+          {/* <meta
                         name="viewport"
                         content="minimum-scale=1, initial-scale=1, width=device-width"
                     /> */}
-                </Head>
-                <Component {...pageProps} />
-            </Fragment>
-        );
-    }
+        </Head>
+        <Component {...pageProps} />
+      </Fragment>
+    );
+  }
 }
 
 // Next Redux Wrapper의 사용으로 pre-render가 비활성된 상태
-export default Wrapper.withRedux(appWithTranslation(Home));
+export default wrapper.withRedux(appWithTranslation(Home));
