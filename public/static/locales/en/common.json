@@ -1,5 +1,12 @@
 {
-    "back-to-home": "Back to home",
-    "language": "language",
-    "seoul": "Seoul"
+  "back-to-home": "Back to home",
+  "language": "language",
+  "seoul": "Seoul",
+  "busan": "Busan",
+  "incheon": "Incheon",
+  "jeju": "Jeju",
+  "gyeongju": "Gyeongju",
+  "yeosu": "Yeosu",
+  "gangneung": "Gangneung",
+  "gapyeong": "Gapyeong"
 }

@@ -1,5 +1,12 @@
 {
-    "back-to-home": "홈으로",
-    "language": "언어",
-    "seoul": "서울"
+  "back-to-home": "홈으로",
+  "language": "언어",
+  "seoul": "서울",
+  "busan": "부산",
+  "incheon": "인천",
+  "jeju": "제주",
+  "gyeongju": "경주",
+  "yeosu": "여수",
+  "gangneung": "강릉",
+  "gapyeong": "가평"
 }
