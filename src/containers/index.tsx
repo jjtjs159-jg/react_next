@@ -8,7 +8,7 @@ import { Headline } from 'components/typography';
 import { withTranslation } from 'i18n';
 import { TFunction } from 'next-i18next';
 import colors from 'constants/colors';
-import ServiceArticle from './ServiceArticle';
+import CityList from './CityList';
 import classnames from 'classnames/bind';
 import styles from './index.module.scss';
 
@@ -73,7 +73,7 @@ const Index: FunctionComponent<Props> = ({ t }) => {
       <Section innerRef={targetRef}>
         <div className={styles['service-wrap']}>
           {cityList.map((city, i) => (
-            <ServiceArticle t={t} content={city} key={`${city.name}-${i}`} />
+            <CityList t={t} content={city} key={`${city.name}-${i}`} />
           ))}
         </div>
       </Section>
