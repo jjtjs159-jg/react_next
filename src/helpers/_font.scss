@@ -1,59 +1,164 @@
+/*
+  영문 (대문자) : U+0041-005A
+  영문 (소문자) : U+0061-007A
+  숫자 : U+0030-0039
+  한글 : U+AC00-U+D7A3
+*/
+
 @font-face {
-    font-family: "Raleway";
-    font-weight: 100;
-    src: url("/fonts/Raleway/ttf/Raleway-Thin.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 100;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Thin.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Thin.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Thin.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Thin.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 200;
-    src: url("/fonts/Raleway/ttf/Raleway-ExtraLight.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 200;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Light.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Light.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Light.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Light.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 300;
-    src: url("/fonts/Raleway/ttf/Raleway-Light.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 300;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-DemiLight.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-DemiLight.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-DemiLight.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-DemiLight.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 400;
-    src: url("/fonts/Raleway/ttf/Raleway-Regular.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 400;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Regular.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Regular.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Regular.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Regular.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 500;
-    src: url("/fonts/Raleway/ttf/Raleway-Medium.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 500;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Medium.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Medium.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Medium.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Medium.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 600;
-    src: url("/fonts/Raleway/ttf/Raleway-SemiBold.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 600;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Medium.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Medium.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Medium.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Medium.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 700;
-    src:
-        url("/fonts/Raleway/woff2/Raleway-Bold.woff2") format("woff2"),
-        url("/fonts/Raleway/ttf/Raleway-Bold.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 700;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Bold.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Bold.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Bold.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Bold.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 800;
-    src: url("/fonts/Raleway/ttf/Raleway-ExtraBold.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 800;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Black.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Black.woff")format("woff"),
+    url("/fonts/NotoSansKR/ttf/NotoSansKR-Black.ttf")format("truetype"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Black.otf")format("opentype");
 }
 
 @font-face {
-    font-family: "Raleway";
-    font-weight: 900;
-    src: url("/fonts/Raleway/ttf/Raleway-Black.ttf") format("truetype");
+  font-family: "NotoSansKR";
+  font-weight: 900;
+  src:
+    url("/fonts/NotoSansKR/woff2/NotoSansKR-Black.woff2")format("woff2"),
+    url("/fonts/NotoSansKR/woff/NotoSansKR-Black.woff")format("woff"),
+    url("/fonts/NotoSansKR/otf/NotoSansKR-Black.otf")format("opentype");
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 100;
+  src: url("/fonts/Raleway/ttf/Raleway-Thin.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 200;
+  src: url("/fonts/Raleway/ttf/Raleway-ExtraLight.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 300;
+  src: url("/fonts/Raleway/ttf/Raleway-Light.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 400;
+  src: url("/fonts/Raleway/ttf/Raleway-Regular.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 500;
+  src: url("/fonts/Raleway/ttf/Raleway-Medium.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 600;
+  src: url("/fonts/Raleway/ttf/Raleway-SemiBold.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 700;
+  src:
+    url("/fonts/Raleway/woff2/Raleway-Bold.woff2")format("woff2"),
+    url("/fonts/Raleway/ttf/Raleway-Bold.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 800;
+  src: url("/fonts/Raleway/ttf/Raleway-ExtraBold.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+@font-face {
+  font-family: "Raleway";
+  font-weight: 900;
+  src: url("/fonts/Raleway/ttf/Raleway-Black.ttf")format("truetype");
+  unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
 }
 
 * {
-    font-family: "Raleway", sans-serif;
+  font-family: "Raleway", 'NotoSansKR', sans-serif;
 }
