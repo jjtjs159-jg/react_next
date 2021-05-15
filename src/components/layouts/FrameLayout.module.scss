@@ -1,0 +1,10 @@
+@import "constants/colors";
+@import "helpers/_responsive";
+@import "helpers/_mixins";
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: $colorDarkGreen;
+}

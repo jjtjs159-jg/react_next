@@ -4,37 +4,37 @@
 @import "./mixins";
 
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 body {
-    margin: 0;
-    background-color: $colorSky;
-    min-width: 320px;
-    overflow-x: hidden;
+  margin: 0;
+  background-color: $colorSky;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #__next {
-    max-width: 1720px;
-    width: 90%;
-    margin: 0 auto;
+  max-width: 1720px;
+  // width: 90%;
+  margin: 0 auto;
 }
 
 #nprogress {
-    position: fixed;
-    background: $colorGreen3;
-    width: 100%;
-    height: 5px;
-    top: 0;
-    left: 0;
+  position: fixed;
+  background: $colorGreen3;
+  width: 100%;
+  height: 5px;
+  top: 0;
+  left: 0;
 
-    .bar {
-        height: 100%;
-        z-index: 1;
-        background: $colorDarkGreen;
-    }
+  .bar {
+    height: 100%;
+    z-index: 1;
+    background: $colorDarkGreen;
+  }
 }

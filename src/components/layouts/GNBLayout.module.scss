@@ -3,109 +3,110 @@
 @import "helpers/_mixins";
 
 .wrapper {
-    min-height: 100vh;
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .main {
-    padding-top: 280px;
-    min-height: 90vh;
+  padding-top: 280px;
+  min-height: 90vh;
 
-    @include media(">xs") {
-        padding-top: 345px;
-    }
+  @include media(">xs") {
+    padding-top: 345px;
+  }
 
-    @include media(">sm") {
-        padding-top: 375px;
-    }
+  @include media(">sm") {
+    padding-top: 375px;
+  }
 
-    @include media(">md") {
-        padding-top: 325px;
-    }
+  @include media(">md") {
+    padding-top: 325px;
+  }
 }
 
 .main-title {
-    position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
-    max-width: 90%;
-    margin: 0 auto;
-    background-image: url('/favicon.png');
-    background-repeat: no-repeat;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  max-width: 90%;
+  margin: 0 auto;
+  background-image: url('/favicon.png');
+  background-repeat: no-repeat;
+  background-position: center -100px;
+  background-size: 400px;
+  padding-top: 185px;
+  text-align: center;
+  z-index: -1;
+  transition: background-size 0.25s;
+
+  @include media(">xs") {
+    padding-top: 220px;
     background-position: center -100px;
-    background-size: 400px;
-    padding-top: 185px;
-    text-align: center;
-    z-index: -1;
-    transition: background-size 0.25s;
+    background-size: 450px;
+  }
+
+  @include media(">sm") {
+    padding-top: 250px;
+    background-size: 550px;
+  }
+
+  @include media(">md") {
+    background-position: center -150px;
+    background-size: auto;
+    top: 0;
+  }
+
+  & > span {
+    @include nowrap();
+    font-weight: 300;
+    font-size: 36px;
 
     @include media(">xs") {
-        padding-top: 220px;
-        background-position: center -100px;
-        background-size: 450px;
+      font-size: 40px;
     }
 
     @include media(">sm") {
-        padding-top: 250px;
-        background-size: 550px;
+      font-size: 3rem;
     }
+  }
 
-    @include media(">md") {
-        background-position: center -150px;
-        background-size: auto;
-        top: 0;
-    }
-
-    & > span {
-        @include nowrap();
-        font-weight: 300;
-        font-size: 36px;
-
-        @include media(">xs") {
-            font-size: 40px;
-        }
-
-        @include media(">sm") {
-            font-size: 3rem;
-        }
-    }
-
-    &.active {
-        display: none;
-    }
+  &.active {
+    display: none;
+  }
 }
 
 .content-wrap {
-    position: relative;
-    z-index: 10;
+  position: relative;
+  z-index: 10;
 }
 
 .inner {
-    background: $colorSky;
+  background: $colorSky;
 }
 
 .wave {
-    background-image: url('/wave.svg');
-    background-repeat: repeat;
-    background-position: center;
-    display: block;
-    height: 44px;
+  background-image: url('/wave.svg');
+  background-repeat: repeat;
+  background-position: center;
+  display: block;
+  height: 44px;
 }
 
 .footer {
-    // padding-top: 9em;
-    position: relative;
-    z-index: 3;
+  position: relative;
+  z-index: 3;
 
-    .greeting {
-        color: $colorGray;
-        text-align: center;
-        font-weight: 500;
-        font-size: 1.2em;
-    }
+  .greeting {
+    color: $colorGray;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2em;
+  }
 
-    .copyright {
-        text-align: center;
-        margin-top: 0;
-    }
+  .copyright {
+    text-align: center;
+    margin-top: 0;
+  }
 }
