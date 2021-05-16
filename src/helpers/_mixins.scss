@@ -1,43 +1,71 @@
+@mixin linkHoverEffect {
+  & > a {
+    position: relative;
+    transition: color 0.25s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      bottom: -1px;
+      height: 2px;
+      left: 50%;
+      width: 0;
+      background: $colorDarkGreen;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    }
+
+    &:hover {
+      color: $colorDarkGreen;
+
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
 @mixin nowrap() {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @mixin parallelogram() {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 // forwards: 마지막 keyframe에 의해 설정된 값을 유지
 
 @mixin fadeUp($speed: 1) {
-    animation: fade-up #{$speed}s cubic-bezier(0.2, 0.3, 0.25, 0.9) forwards;
-    opacity: 0;
+  animation: fade-up #{$speed}s cubic-bezier(0.2, 0.3, 0.25, 0.9)forwards;
+  opacity: 0;
 }
 
 @mixin fadeDown($speed: 1) {
-    animation: fade-down #{$speed}s cubic-bezier(0.2, 0.3, 0.25, 0.9) forwards;
-    opacity: 0;
+  animation: fade-down #{$speed}s cubic-bezier(0.2, 0.3, 0.25, 0.9)forwards;
+  opacity: 0;
 }
 
 @keyframes fade-up {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-down {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }

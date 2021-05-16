@@ -161,5 +161,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-// export default connect(mapStateToProps)(Index);
 export default withTranslation('common')(connect(mapStateToProps)(Index));

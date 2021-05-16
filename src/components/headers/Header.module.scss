@@ -1,197 +1,170 @@
-@import "constants/colors"; // 루트 import의 경우 직접 파일 정의로 갈수는 없는가 ?
+@import "constants/colors";
 @import "helpers/_responsive";
-
-%hover-effect {
-    & > a {
-        position: relative;
-        transition: color 0.25s;
-
-        &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            bottom: -1px;
-            height: 2px;
-            left: 50%;
-            width: 0;
-            background: $colorDarkGreen;
-            transition: width 0.3s ease 0s, left 0.3s ease 0s;
-        }
-
-        &:hover {
-            color: $colorDarkGreen;
-
-            &::after {
-                width: 100%;
-                left: 0;
-            }
-        }
-    }
-}
+@import "helpers/_mixins";
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 60px;
-    // background: #fff;
-    transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 60px;
+  // background: #fff;
+  transition: height 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9)0s;
 
-    // @include media("<=md") {
-    //     border-bottom: 1px solid $colorDarkGreen;
-    // }
+  // @include media("<=md") {
+  //     border-bottom: 1px solid $colorDarkGreen;
+  // }
 
-    @include media(">md") {
-        // background: transparent;
-        height: 100px;
+  @include media(">md") {
+    // background: transparent;
+    height: 100px;
 
-        &.active {
-            height: 80px;
-        }
+    &.active {
+      height: 80px;
     }
+  }
 }
 
 .header-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    transition: background 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
-    background: #fff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: background 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9)0s;
+  background: #fff;
 
-    @include media("<=md") {
-        border-bottom: 1px solid $colorDarkGreen;
+  @include media("<=md") {
+    border-bottom: 1px solid $colorDarkGreen;
+  }
+
+  @include media(">md") {
+    background: transparent;
+    // height: 100px;
+
+    &.active {
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid #f2f2f2;
     }
+  }
 
-    @include media(">md") {
-        background: transparent;
-        // height: 100px;
-
-        &.active {
-            background: rgba(255, 255, 255, 0.8);
-            border-bottom: 1px solid #f2f2f2;
-        }
-    }
-
-    // &.active {
-    //     background: #fff;
-    //     opacity: 0.8;
-    //     border-bottom: 1px solid #f2f2f2;
-    // }
+  // &.active {
+  //     background: #fff;
+  //     opacity: 0.8;
+  //     border-bottom: 1px solid #f2f2f2;
+  // }
 }
 
 .logo {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
 
-    & > h1 {
-        position: absolute;
-        font-weight: 600;
-        // left: 4%;
-        left: 10%;
-        top: 50%;
-        transform: translateY(-50%);
-        text-transform: uppercase;
-        font-size: 1.5rem;
+  & > h1 {
+    position: absolute;
+    font-weight: 600;
+    // left: 4%;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+    font-size: 1.5rem;
 
-        @include media(">md") {
-            left: 4%;
-            font-size: 1.8rem;
-        }
+    @include media(">md") {
+      left: 4%;
+      font-size: 1.8rem;
     }
+  }
 }
 
 .nav {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: top;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
 
-    @include media("<=md") {
-        display: none;
+  @include media("<=md") {
+    display: none;
+  }
+
+  & > ul {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+
+    & > li {
+      @include linkHoverEffect();
+      text-transform: uppercase;
+      display: inline-block;
+      margin-left: 2.4rem;
+      font-weight: 600;
+      transition: color 0.25s;
     }
-
-    & > ul {
-        position: absolute;
-        right: 4%;
-        top: 50%;
-        transform: translateY(-50%);
-        text-align: right;
-
-        & > li {
-            @extend %hover-effect;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-left: 2.4rem;
-            font-weight: 600;
-            transition: color 0.25s;
-        }
-    }
+  }
 }
 
 .menu {
-    position: absolute;
-    top: 50%;
-    right: 4%;
-    transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
 
-    svg {
-        color: #000;
-    }
+  svg {
+    color: #000;
+  }
 
-    @include media(">md") {
-        display: none;
-    }
+  @include media(">md") {
+    display: none;
+  }
 }
 
 .menu-item {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background-color: $colorInfo2;
-    transition: transform 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s;
-    transform: translate3d(0, 0, 0);
-    top: -100%;
-    // display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: $colorInfo2;
+  transition: transform 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9)0s;
+  transform: translate3d(0, 0, 0);
+  top: -100%;
+  // display: none;
 
-    &.open {
-        // display: block;
-        transform: translate3d(0, 100%, 0);
-        // transition: transform 0s;
+  &.open {
+    // display: block;
+    transform: translate3d(0, 100%, 0);
+    // transition: transform 0s;
 
-        @include media(">md") {
-            display: none;
-        }
+    @include media(">md") {
+      display: none;
     }
+  }
 
-    ul {
-        position: relative;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%);
-        text-align: center;
+  ul {
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+  }
+
+  li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    // letter-spacing: 2px;
+    line-height: 3em;
+    text-transform: uppercase;
+
+    a {
+      transition: color 0.25s;
+
+      &:hover {
+        color: #fff;
+      }
     }
-
-    li {
-        font-size: 1.2rem;
-        font-weight: bold;
-        // letter-spacing: 2px;
-        line-height: 3em;
-        text-transform: uppercase;
-
-        a {
-            transition: color 0.25s;
-
-            &:hover {
-                color: #fff;
-            }
-        }
-    }
+  }
 }
