@@ -1,0 +1,16 @@
+@import "constants/colors";
+
+.wrapper {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.inner {
+  padding: 4px 8px;
+
+  &:hover {
+    cursor: pointer;
+    background: $colorInfo2;
+  }
+}

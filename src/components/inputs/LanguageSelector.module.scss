@@ -2,63 +2,51 @@
 @import "helpers/_responsive";
 
 .wrap {
-    position: relative;
+  position: relative;
 }
 
 .list {
+  position: absolute;
+  left: -50px;
+  text-align: left;
+  width: 200px;
+  min-height: 50px;
+
+  &::before {
+    content: '';
+    border: 11px solid transparent;
+    border-bottom-color: $colorGray1;
     position: absolute;
-    left: -50px;
-    text-align: left;
-    width: 200px;
-    min-height: 50px;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    &::before {
-        content: '';
-        border: 11px solid transparent;
-        border-bottom-color: $colorGray1;
-        position: absolute;
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    &::after {
-        content: '';
-        border: 11px solid transparent;
-        border-bottom-color: $colorLightGray;
-        position: absolute;
-        top: -21px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  &::after {
+    content: '';
+    border: 11px solid transparent;
+    border-bottom-color: $colorLightGray;
+    position: absolute;
+    top: -21px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .inner-wrap {
-    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14), 0 1px 14px 0 rgba(0, 0, 0, 0.1);
-    border: 1px solid $colorGray1;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14), 0 1px 14px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid $colorGray1;
 }
 
 .head {
-    font-size: 0.9rem;
-    line-height: 20px;
-    padding: 8px 16px;
-    background-color: $colorLightGray;
-    border-bottom: 1px solid $colorGray1;
+  font-size: 0.9rem;
+  line-height: 20px;
+  padding: 8px 16px;
+  background-color: $colorLightGray;
+  border-bottom: 1px solid $colorGray1;
 }
 
 .inner {
-    background: #fff;
-    text-align: center;
-
-    & > li {
-        width: 50%;
-        display: inline-block;
-        vertical-align: top;
-        padding: 4px 8px;
-
-        &:hover {
-            cursor: pointer;
-            background: $colorInfo2;
-        }
-    }
+  background: #fff;
+  text-align: center;
 }
