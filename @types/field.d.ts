@@ -1,5 +1,5 @@
 import { ReactElement, InputHTMLAttributes } from 'react';
-import { Control, ControllerRenderProps } from 'react-hook-form';
+import { Control, FieldError, ControllerRenderProps } from 'react-hook-form';
 
 export = Field;
 export as namespace Field;
@@ -7,8 +7,9 @@ export as namespace Field;
 declare namespace Field {
   type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
-  type RenderProps = ControllerRenderProps &
-    Omit<BaseFieldProps, keyof FormProps & keyof BaseProps>;
+  type RenderProps = ControllerRenderProps & {
+    error?: FieldError;
+  } & Omit<BaseFieldProps, keyof FormProps & keyof BaseProps>;
 
   interface FormProps {
     control: Control;

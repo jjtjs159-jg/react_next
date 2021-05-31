@@ -1,12 +1,12 @@
-import { useCallback, ReactElement } from 'react';
-import { Controller, useController, ControllerRenderProps, Control } from 'react-hook-form';
+import { useCallback } from 'react';
+import { Controller, useController, ControllerRenderProps } from 'react-hook-form';
 
 const BaseField = <T extends {}>({
   render,
-  name,
   control,
-  defaultValue,
+  name,
   required,
+  defaultValue,
   ...rest
 }: Field.BaseFieldProps<T>) => {
   const { fieldState } = useController({
@@ -21,7 +21,7 @@ const BaseField = <T extends {}>({
 
   const renderInner = useCallback(
     (field: ControllerRenderProps) => {
-      const renderProps = {
+      const renderProps: Field.RenderProps = {
         error: fieldState.error,
         ...field,
         ...rest,
